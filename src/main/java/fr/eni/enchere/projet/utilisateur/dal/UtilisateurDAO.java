@@ -9,7 +9,21 @@ public interface UtilisateurDAO {
 	
 	public Utilisateur select(int id);
 
-	
+	public void updatePseudo(Utilisateur utilisateur);
 
-	void updatePseudo(Utilisateur utilisateur);
+	public void updateNom(Utilisateur utilisateur);
+
+	public void updatePrenom(Utilisateur utilisateur);
+	
+	public void updateEmail(Utilisateur utilisateur);
+	
+	public void updateTelephone(Utilisateur utilisateur);
+	
+	public void updateRue(Utilisateur utilisateur);
+	
+	public void updateCodePostal(Utilisateur utilisateur);
+	
+	public void updateVille(Utilisateur utilisateur);
+	
+	public void updateMotDePasse(Utilisateur utilisateur);
 }
