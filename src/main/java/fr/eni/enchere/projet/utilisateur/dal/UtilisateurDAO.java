@@ -7,9 +7,7 @@ public interface UtilisateurDAO {
 	
 	public void update(int id);
 	
-	
-	
 	public void delete(int id);
 	
-	
+	public Utilisateur select(int id);
 }
