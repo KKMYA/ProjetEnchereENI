@@ -178,7 +178,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public Utilisateur select(int no_utilisateur) {
+	public Utilisateur select(int no_utilisateur)throws SQLException {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(SELECT_UTILISATEUR);) {
 			stmt.setInt(1, no_utilisateur);
@@ -198,12 +198,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 					rs.getBoolean("administrateur")
 					);
 			return utilisateur;
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
 		
-		return null ;
+		}
 	}
-
 }

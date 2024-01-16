@@ -1,5 +1,7 @@
 package fr.eni.enchere.projet.utilisateur.dal;
 
+import java.sql.SQLException;
+
 import fr.eni.enchere.projet.bo.Utilisateur;
 
 public interface UtilisateurDAO {
@@ -7,7 +9,7 @@ public interface UtilisateurDAO {
 	
 	public void delete(int id);
 	
-	public Utilisateur select(int id);
+	public Utilisateur select(int id) throws SQLException;
 
 	public void updatePseudo(Utilisateur utilisateur);
 
