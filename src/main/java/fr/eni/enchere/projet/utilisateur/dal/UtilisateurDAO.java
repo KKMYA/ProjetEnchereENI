@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import fr.eni.enchere.projet.bo.Utilisateur;
 
 public interface UtilisateurDAO {
+	
 	public void insert(Utilisateur utilisateur);
 	
 	public void delete(int id);
