@@ -28,6 +28,8 @@ public class ServletAcceuil extends HttpServlet {
 		response.getWriter().append("TEST TEST TEST");
 		response.getWriter().append("TEST TEST TEST");
 		response.getWriter().append("TEST TEST TEST");
+		response.getWriter().append("TEST TEST TEST");
+		response.getWriter().append("TEST TEST TEST");
 
 	}
 
