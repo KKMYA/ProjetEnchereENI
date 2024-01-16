@@ -75,6 +75,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		
 	}
 	
+	@Override
 	public void updatePrenom(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_PRENOM_UTILISATEUR);) {
@@ -82,12 +83,12 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getPrenom());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 	
+	@Override
 	public void updateEmail(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_EMAIL_UTILISATEUR);) {
@@ -95,12 +96,12 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getEmail());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 	
+	@Override
 	public void updateTelephone(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_TELEPHONE_UTILISATEUR);) {
@@ -114,6 +115,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		
 	}
 	
+	@Override
 	public void updateRue(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_RUE_UTILISATEUR);) {
@@ -127,6 +129,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		
 	}
 	
+	@Override
 	public void updateCodePostal(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_CODEPOSTAL_UTILISATEUR);) {
@@ -140,6 +143,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		
 	}
 	
+	@Override
 	public void updateVille(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_VILLE_UTILISATEUR);) {
@@ -153,6 +157,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		
 	}
 	
+	@Override
 	public void updateMotDePasse(Utilisateur utilisateur) {
 		
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(UPDATE_MOTDEPASSE_UTILISATEUR);) {
