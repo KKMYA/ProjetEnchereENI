@@ -48,4 +48,10 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		
 	}
 
+	@Override
+	public Utilisateur select(int id) {
+	
+		return null;
+	}
+
 }
