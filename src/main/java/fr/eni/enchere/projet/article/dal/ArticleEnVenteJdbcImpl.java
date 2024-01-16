@@ -122,8 +122,9 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 		List<ArticleEnVente> articleEnVente = new ArrayList<>();
 		
 		try(Connection con = ConnectionProvider.getConnection();
-			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID_VENDEUR);)
-				{ ResultSet rs = stmt.executeQuery();
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID_VENDEUR);
+			ResultSet rs = stmt.executeQuery();)
+			{ 
 				while(rs.next()) {
 					ArticleEnVente article = new ArticleEnVente();
 					stmt.setInt(1, noUtilisateur);
