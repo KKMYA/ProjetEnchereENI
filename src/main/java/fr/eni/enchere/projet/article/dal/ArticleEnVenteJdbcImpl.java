@@ -22,6 +22,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 	private static final String UPDATE_ARTICLE_DESCRIPTION = "UPDATE ARTICLE_VENDUS SET description = ? WHERE no_article = ?";
 	private static final String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
 	private static final String SELECT_BY_ID_VENDEUR = "SELECT * FROM ARTICLE_VENDUS WHERE no_utilisateur = ?";
+	private static final String SELECT_ALL = "SELECT * FROM ARTICLE_VENDUS";
 
 	
 	@Override
@@ -98,12 +99,12 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 		ArticleEnVente article = new ArticleEnVente();	
 		
 		try(Connection con = ConnectionProvider.getConnection();
-			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID);
-			ResultSet rs = stmt.executeQuery();
-)
-			{
-			stmt.setInt(1, noArticle);
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID);)
+		{
 			
+			stmt.setInt(1, noArticle);
+			ResultSet rs = stmt.executeQuery();
+						
 			article.setNomArticle(rs.getString("nom_article"));
 			article.setDescription(rs.getString("description"));
 			article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
@@ -117,17 +118,46 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 	}
 	
 	@Override
+	public List<ArticleEnVente> afficherArticleEnVente(ArticleEnVente articleEnVente) {
+		
+		List<ArticleEnVente> tousLesArticlesEnVente = new ArrayList<>();
+		
+		try(Connection con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL);
+			ResultSet rs = stmt.executeQuery();)
+			{ 
+				while(rs.next()) {
+					ArticleEnVente article = new ArticleEnVente();
+					
+					article.setNoArticle(rs.getInt("no_article"));
+					article.setNomArticle(rs.getString("nom_article"));
+					article.setDescription(rs.getString("description"));
+					article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
+					article.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
+					article.setMiseAPrix(rs.getInt("prix_initial"));
+					article.setPrixVente(rs.getInt("prix_vente"));
+					
+					tousLesArticlesEnVente.add(article);
+				}				
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		return tousLesArticlesEnVente;
+	}
+	
+	@Override
 	public List<ArticleEnVente> afficherArticleSelonIdVendeur(int noUtilisateur) {
 		
 		List<ArticleEnVente> articleEnVente = new ArrayList<>();
 		
 		try(Connection con = ConnectionProvider.getConnection();
-			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID_VENDEUR);
-			ResultSet rs = stmt.executeQuery();)
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID_VENDEUR);)
 			{ 
+				stmt.setInt(1, noUtilisateur);
+				ResultSet rs = stmt.executeQuery();
+			 
 				while(rs.next()) {
 					ArticleEnVente article = new ArticleEnVente();
-					stmt.setInt(1, noUtilisateur);
 					
 					article.setNomArticle(rs.getString("nom_article"));
 					article.setDescription(rs.getString("description"));
