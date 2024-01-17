@@ -6,7 +6,7 @@ import fr.eni.enchere.projet.bo.ArticleEnVente;
 
 public interface ArticleEnVenteDAO {
 	
-	public void ajouterArticle(ArticleEnVente articleEnVente);
+	public void ajouterArticle(ArticleEnVente articleEnVente) ;
 	
 	public void supprimerArticle(int noArticle);
 	
@@ -18,6 +18,6 @@ public interface ArticleEnVenteDAO {
 	
 	public List<ArticleEnVente> afficherArticleSelonIdVendeur(int noUtilisateur);
 	
-	public List<ArticleEnVente> afficherArticleEnVente(ArticleEnVente articleEnVente);
+	public List<ArticleEnVente> afficherArticleEnVente();
 
 }

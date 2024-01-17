@@ -118,7 +118,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 	}
 	
 	@Override
-	public List<ArticleEnVente> afficherArticleEnVente(ArticleEnVente articleEnVente) {
+	public List<ArticleEnVente> afficherArticleEnVente() {
 		
 		List<ArticleEnVente> tousLesArticlesEnVente = new ArrayList<>();
 		
