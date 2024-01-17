@@ -17,5 +17,7 @@ public interface ArticleEnVenteDAO {
 	public ArticleEnVente afficherArticleSelonIdArticle(int noArticle);
 	
 	public List<ArticleEnVente> afficherArticleSelonIdVendeur(int noUtilisateur);
+	
+	public List<ArticleEnVente> afficherArticleEnVente(ArticleEnVente articleEnVente);
 
 }

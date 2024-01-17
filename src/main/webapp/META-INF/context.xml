@@ -5,7 +5,7 @@
         type="javax.sql.DataSource"
         url="jdbc:sqlserver://localhost:1433;databaseName=DB_PROJET_ENCHERE;trustServerCertificate=true"
         username="UtilisateurBDD"
-        password="password"
+        password="pa$$w0rd"
         maxTotal="100"
         maxWaitMillis="1000"/>
 </Context>
