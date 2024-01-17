@@ -16,14 +16,14 @@
         <div class="col-auto">
             <a href="./Connexion.html" class="text-decoration-none">
                 <button class="btn btn-light" type="button" id="Connexion">
-                    Se connecter
+                    Se connecter / S'inscrire
                 </button>
             </a>
         </div>
 
         <div class="col-auto">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="Catégories" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Catégories
                 </button>
                 <div class="dropdown-menu" aria-labelledby="Catégories">
@@ -40,13 +40,12 @@
 <form class="text-center justify-content-center d-flex align-items-center mt-4">
     <div class="w-25">
         <label for="InputFiltres" class="form-label"></label>
-        <input type="search" class="form-control" id="InputFiltres" aria-describedby="InputFiltres" placeholder="Filtrer">
-        <div id="InputFiltres" class="placeholder"></div>
+        <input type="search" class="form-control" id="InputFiltres" name="InputFiltres" aria-describedby="InputFiltres" placeholder="Filtrer">
     </div>
 
     <div class="input-group w-25 ms-3">
-        <input type="search" class="form-control rounded" placeholder="Rechercher" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>Rechercher</button>
+        <input type="search" class="form-control rounded" id="Rechercher" name="Rechercher" placeholder="Rechercher" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Rechercher</button>
     </div>
 </form>
 
