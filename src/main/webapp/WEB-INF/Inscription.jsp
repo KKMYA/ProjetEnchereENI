@@ -11,7 +11,7 @@
         <h1>ENI enchères</h1>
 
         
-        <form action="/stockage-comptes" method="post"> <!-- car présence de mdp-->
+        <form action="./inscription" method="post"> <!-- car présence de mdp-->
 
             <!--Plus de Fieldset (visible) avec l'ajout du bootstrap-->
             <fieldset>
