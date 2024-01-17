@@ -12,6 +12,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="container mt-5">
   <h2>Ajouter un article à vendre</h2>
+    <!--Définition du formulaire d'ajout d'article -->
   <form>
     <div class="form-group">
       <label for="nomArticle">Nom de l'article :</label>
@@ -21,6 +22,7 @@
       <label for="description">Description :</label>
       <textarea class="form-control" id="description" name="description" rows="3" placeholder="Entrez la description du produit" required></textarea>
     </div>
+      <!--Formulaire d'ajout de la catégorie en menu déroulant -->
     <div class="form-group">
         <label for="categorieChoix"> Catégorie</label>
         <select class="custom-select" id="categorieChoix" name="categorieChoix" required>
@@ -39,8 +41,13 @@
     <div class="form-group">
       <label for="photo">URL de la photo :</label>
       <input type="url" class="form-control" id="photo" name="photo" placeholder="Entrez l'URL de la photo de l'article">
+        <div class="fichier btn btn-primary">
+            Changer Photo
+            <input type="file" name="fichier"/>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Ajouter l'article</button>
+    <a href="index.html" type="submit" class="btn btn-secondary"> Annuler </a>
   </form>
 </div>
 
