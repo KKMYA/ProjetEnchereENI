@@ -190,6 +190,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(SELECT_UTILISATEUR);) {
 			stmt.setInt(1, no_utilisateur);
 			ResultSet rs = stmt.executeQuery();
+			rs.next();
 			Utilisateur utilisateur = new Utilisateur(
 					no_utilisateur,
 					rs.getString("pseudo"),
