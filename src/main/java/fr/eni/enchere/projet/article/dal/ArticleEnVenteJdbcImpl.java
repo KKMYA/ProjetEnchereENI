@@ -26,7 +26,9 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 
 	
 	@Override
-	public void ajouterArticle(ArticleEnVente articleEnVente) {
+	public int ajouterArticle(ArticleEnVente articleEnVente) {
+		
+		int key = -1;
 		
 		LocalDate aujourdhui = LocalDate.now();
 		LocalDate quinzeJours = aujourdhui.plusDays(15);
@@ -42,9 +44,16 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 			stmt.setInt(5, Integer.valueOf("prix_initial"));
 			stmt.setInt(6, Integer.valueOf(null));
 			stmt.executeUpdate();
+			ResultSet rs = stmt.getGeneratedKeys();
+			if(rs.next()) {
+			key = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+			
+		return key;
+		
 	}
 
 	@Override
@@ -103,13 +112,14 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 			
 			stmt.setInt(1, noArticle);
 			ResultSet rs = stmt.executeQuery();
-						
+			rs.next();
 			article.setNomArticle(rs.getString("nom_article"));
 			article.setDescription(rs.getString("description"));
 			article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
 			article.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
 			article.setMiseAPrix(rs.getInt("prix_initial"));
 			article.setPrixVente(rs.getInt("prix_vente"));
+			//article.setRetrait(RetraitDAO.getRetraitByID(rs.getInt(1))
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -154,7 +164,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 			{ 
 				stmt.setInt(1, noUtilisateur);
 				ResultSet rs = stmt.executeQuery();
-			 
+				
 				while(rs.next()) {
 					ArticleEnVente article = new ArticleEnVente();
 					

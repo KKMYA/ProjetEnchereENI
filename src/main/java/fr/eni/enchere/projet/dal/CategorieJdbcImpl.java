@@ -20,16 +20,24 @@ public class CategorieJdbcImpl implements CategorieDAO{
 	
 	
 	@Override
-	public void ajouterCategorie(Categorie categorie) {
+	public int ajouterCategorie(Categorie categorie) {
+		
+		int key = -1;
 		
 		try(Connection con = ConnectionProvider.getConnection();			
 		PreparedStatement stmt = con.prepareStatement(INSERT_CATEGORIE, Statement.RETURN_GENERATED_KEYS);)
 		{
 			stmt.setString(1, "libelle");
 			stmt.executeUpdate();
+			
+			ResultSet rs = stmt.getGeneratedKeys();
+			if(rs.next()) {
+				key = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return key;
 	}
 	
 	

@@ -2,6 +2,7 @@ package fr.eni.enchere.projet.bo;
 
 public class Retrait {
 	
+	private int noArticle;
 	private String rue;
 	private String codePostal;
 	private String ville;
@@ -9,7 +10,15 @@ public class Retrait {
 	public Retrait() {
 		
 	}
-
+	
+	public Retrait(int noArticle, String rue, String codePostal, String ville) {
+		super();
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.noArticle = noArticle;
+	}
+	
 	public Retrait(String rue, String codePostal, String ville) {
 		super();
 		this.rue = rue;
@@ -39,6 +48,18 @@ public class Retrait {
 
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+
+	
+	
+	
+	
+	public int getNoArticle() {
+		return noArticle;
+	}
+
+	public void setNoArticle(int noArticle) {
+		this.noArticle = noArticle;
 	}
 
 	@Override
