@@ -8,6 +8,8 @@ public interface CategorieDAO {
 
 	public int ajouterCategorie(Categorie categorie);
 	
+	public int quelleCategorie(String categorie);
+	
 	public void supprimerCategorie(int noCategorie);
 	
 	public void modifierCategorie(Categorie categorie, int noCategorie);
