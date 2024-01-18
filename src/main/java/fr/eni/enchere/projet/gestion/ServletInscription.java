@@ -14,7 +14,7 @@ import fr.eni.enchere.projet.utilisateur.dal.UtilisateurDAO;
 /**
  * Servlet implementation class ServletInscription
  */
-@WebServlet("/inscription")
+@WebServlet(urlPatterns = "/Inscription")
 public class ServletInscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     UtilisateurDAO utilisateurDao = DAOFactory.getUtilisateurDAO();   

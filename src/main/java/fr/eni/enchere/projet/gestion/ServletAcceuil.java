@@ -14,10 +14,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("")
+@WebServlet(urlPatterns = "/Accueil")
 public class ServletAcceuil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticle();
+	private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticleDAO();
  
 
 

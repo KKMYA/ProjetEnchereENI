@@ -1,11 +1,9 @@
-package fr.eni.enchere.projet.bll;
+package fr.eni.enchere.projet.dal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import fr.eni.enchere.projet.dal.ConnectionProvider;
 
 public class LoginDao {
 
