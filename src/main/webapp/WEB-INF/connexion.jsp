@@ -15,7 +15,7 @@
   <!-- Entrée Mail -->
   <div class="form-outline mx-auto mb-4" style="width: 25%;">
     <input type="email" id="email" name="email" class="form-control" />
-    <label class="form-label" for="Email">Adresse Mail</label>
+    <label class="form-label" for="email">Adresse Mail</label>
   </div>
 
   <!-- Entrée MDP -->
