@@ -107,10 +107,16 @@
                 placeholder="confirmation"
                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}[A-Z a-z\W]{8,}"><br><br><br>
 
-                <input type="submit" value="Creer">
-                <input type="button" value="Annuler">
+
+                <input type="submit" value="Créer">
+
+
             </fieldset>
 
+        </form>
+
+        <form action="index.jsp">
+            <input type="submit" value="Annuler">
         </form>
 
     </body>
