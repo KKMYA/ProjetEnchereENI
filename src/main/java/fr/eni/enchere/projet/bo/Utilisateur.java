@@ -11,8 +11,9 @@ public class Utilisateur {
 	private String codePostal;
 	private String ville;
 	private String motDePasse;
-	private Integer credit;
-	private boolean administrateur;
+	private Integer credit=0;
+	private boolean administrateur=false;
+	
 	
 	public Utilisateur() {
 		
@@ -33,6 +34,14 @@ public class Utilisateur {
 		this.motDePasse = motDePasse;
 		this.credit = credit;
 		this.administrateur = administrateur;
+	}
+	
+	public int utilisateurEstAdmin(Utilisateur utilisateur) {
+		if(utilisateur.isAdministrateur()==true) {
+			return 1;
+		}
+		else return 0;
+		
 	}
 
 	public int getNoUtilisateur() {

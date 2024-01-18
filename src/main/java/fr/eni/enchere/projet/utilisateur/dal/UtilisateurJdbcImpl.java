@@ -24,22 +24,24 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	private static final String UPDATE_VILLE_UTILISATEUR ="UPDATE UTILISATEURS SET ville = ? WHERE no_utilisateur = ?";
 	private static final String UPDATE_MOTDEPASSE_UTILISATEUR = "UPDATE UTILISATEURS SET mot_de_passe = ? WHERE no_utilisateur = ?";
 
+	
+	
 	@Override
 	public void insert(Utilisateur utilisateur) {
 		
 		try(Connection con =ConnectionProvider.getConnection();
 			PreparedStatement stmt = con.prepareStatement(INSERT_UTILISATEUR,Statement.RETURN_GENERATED_KEYS);) {
-			stmt.setString(1, "pseudo");
-			stmt.setString(2, "nom");
-			stmt.setString(3, "prenom");
-			stmt.setString(4, "email");
-			stmt.setString(5, "telephone");
-			stmt.setString(6, "rue");
-			stmt.setString(7, "code_postal");
-			stmt.setString(8, "ville");
-			stmt.setString(9, "mot_de_passe");
-			stmt.setInt(10, 0);
-			stmt.setBoolean(11, false);
+			stmt.setString(1, utilisateur.getPseudo());
+			stmt.setString(2, utilisateur.getNom());
+			stmt.setString(3, utilisateur.getPrenom());
+			stmt.setString(4, utilisateur.getEmail());
+			stmt.setString(5, utilisateur.getTelephone());
+			stmt.setString(6, utilisateur.getRue());
+			stmt.setString(7, utilisateur.getCodePostal());
+			stmt.setString(8, utilisateur.getVille());
+			stmt.setString(9, utilisateur.getMotDePasse());
+			stmt.setInt(10, utilisateur.getCredit());
+			stmt.setInt(11, utilisateur.utilisateurEstAdmin(utilisateur));
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			
