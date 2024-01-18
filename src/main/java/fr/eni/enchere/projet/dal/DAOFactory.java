@@ -7,7 +7,7 @@ import fr.eni.enchere.projet.utilisateur.dal.UtilisateurJdbcImpl;
 
 public interface DAOFactory {
 	
-	public static ArticleEnVenteDAO GetPersonne() {
+	public static ArticleEnVenteDAO GetArticle() {
 		return new ArticleEnVenteJdbcImpl();
 	}
 	public static UtilisateurDAO getUtilisateurDAO() {
