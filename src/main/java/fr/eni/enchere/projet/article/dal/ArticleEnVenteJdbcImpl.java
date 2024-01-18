@@ -26,7 +26,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 
 	
 	@Override
-	public int ajouterArticle(ArticleEnVente articleEnVente) {
+	public int ajouterArticle(ArticleEnVente articleEnVente){
 		
 		int key = -1;
 		

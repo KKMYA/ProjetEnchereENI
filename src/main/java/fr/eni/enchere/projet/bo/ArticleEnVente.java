@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class ArticleEnVente {
 
+	private int noCategorie;
 	private int noArticle;
 	private String nomArticle;
 	private String description;
@@ -13,10 +14,25 @@ public class ArticleEnVente {
 	private int prixVente;
 	private String etatVente;
 	
+
+	
 	public ArticleEnVente() {
-		super();
 	}
 
+	
+	public ArticleEnVente(int noCategorie, int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+		super();
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+		this.noCategorie = noCategorie;
+	}
 	public ArticleEnVente(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
 		super();
@@ -30,6 +46,7 @@ public class ArticleEnVente {
 		this.etatVente = etatVente;
 	}
 
+	
 	public int getNoArticle() {
 		return noArticle;
 	}
@@ -94,6 +111,16 @@ public class ArticleEnVente {
 		this.etatVente = etatVente;
 	}
 
+	
+	
+	public int getNoCategorie() {
+		return noCategorie;
+	}
+	public void setNoCategorie(int noCategorie) {
+		this.noCategorie = noCategorie;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "ArticleEnVente [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
