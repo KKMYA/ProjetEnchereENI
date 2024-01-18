@@ -27,7 +27,9 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	
 	
 	@Override
-	public void insert(Utilisateur utilisateur) {
+	public int insert(Utilisateur utilisateur) {
+		
+		int key = -1;
 		
 		try(Connection con =ConnectionProvider.getConnection();
 			PreparedStatement stmt = con.prepareStatement(INSERT_UTILISATEUR,Statement.RETURN_GENERATED_KEYS);) {
@@ -43,10 +45,15 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setInt(10, utilisateur.getCredit());
 			stmt.setInt(11, utilisateur.utilisateurEstAdmin(utilisateur));
 			stmt.executeUpdate();
+			ResultSet rs = stmt.getGeneratedKeys();
+			if(rs.next()) {
+				key = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
+		return key;
 	}
 
 	@Override

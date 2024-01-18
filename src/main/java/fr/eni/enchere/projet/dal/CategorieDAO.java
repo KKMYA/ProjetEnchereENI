@@ -6,7 +6,7 @@ import fr.eni.enchere.projet.bo.Categorie;
 
 public interface CategorieDAO {
 
-	public void ajouterCategorie(Categorie categorie);
+	public int ajouterCategorie(Categorie categorie);
 	
 	public void supprimerCategorie(int noCategorie);
 	
