@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +13,7 @@
         <h1>Mon profil</h1>
 
         
-        <form action="./inscription" method="post"> <!-- car présence de mdp-->
+        <form action="./inscription" method="post"> <!-- car prÃ©sence de mdp-->
 
             <!--Plus de Fieldset (visible) avec l'ajout du bootstrap-->
             <fieldset>   
@@ -24,7 +26,7 @@
                 placeholder="pseudo"
                 pattern="[A-Z a-z\W]{,}"
                 maxlength="30"
-                title="3 caractères minimum. "><br>
+                title="3 caractÃ¨res minimum. "><br>
 
                 <label for="nom">Nom: </label>
                 <input type="text"
@@ -33,16 +35,16 @@
                 required
                 placeholder="nom"
                 pattern="[A-Z a-z\W+]{,}"
-                title="3 caractères minimum. Pas de caractères spéciaux acceptés. "> 
+                title="3 caractÃ¨res minimum. Pas de caractères spéciaux acceptés. "> 
 
                 <label for="prenom">Prénom:</label>
                 <input type="text"
                 id="prenom" 
                 name="prenom" 
                 required
-                placeholder="prénom"
+                placeholder="prÃ©nom"
                 pattern="[A-Z a-z\W]{3,}"
-                title="3 caractères minimum. Pas de caractères spéciaux acceptés."><br>
+                title="3 caractÃ¨res minimum. Pas de caractères spéciaux acceptés."><br>
 
                 <label for="email">Email:</label>
                 <input type="email"
@@ -95,7 +97,7 @@
                 required
                 placeholder="mot de passe"
                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}"
-                title=" 8 caractères minimum. Une majuscule, une miniscule et un caractère spécial sont obligatoires">
+                title=" 8 caractÃ¨res minimum. Une majuscule, une miniscule et un caractÃ¨re spÃ©cial sont obligatoires">
 
                 <label for="confirmation">Confirmation: </label>
                 <input type="password"
@@ -105,7 +107,7 @@
                 placeholder="confirmation"
                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}[A-Z a-z\W]{8,}"><br><br><br>
 
-                <input type="submit" value="Créer">
+                <input type="submit" value="Creer">
                 <input type="button" value="Annuler">
             </fieldset>
 
