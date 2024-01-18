@@ -2,7 +2,7 @@ package fr.eni.enchere.projet.gestion;
 
 import java.io.IOException;
 
-import fr.eni.enchere.projet.bll.LoginDao;
+import fr.eni.enchere.projet.dal.LoginDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
