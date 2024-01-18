@@ -16,7 +16,7 @@ import fr.eni.enchere.projet.dal.ConnectionProvider;
 public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 
 	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLE_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente,"
-			+ "no_utilisateur, no_categorie VALUES(?,?,?,?,?,?,?,?)";
+			+ "no_utilisateur, no_categorie) VALUES(?,?,?,?,?,?,?,?)";
 	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLE_VENDUS WHERE no_artlcle=?";
 	private static final String UPDATE_ARTICLE_NOM_ARTICLE = "UPDATE ARTICLE_VENDUS SET nom_article = ? WHERE no_article = ?";
 	private static final String UPDATE_ARTICLE_DESCRIPTION = "UPDATE ARTICLE_VENDUS SET description = ? WHERE no_article = ?";
@@ -51,9 +51,8 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 	public void supprimerArticle(int noArticle) {
 		
 		try(Connection con = ConnectionProvider.getConnection();
-				
 			PreparedStatement stmt = con.prepareStatement(DELETE_ARTICLE);)
-		{
+			{
 			stmt.setInt(1, noArticle);
 			stmt.executeUpdate();
 		} catch (SQLException e) {

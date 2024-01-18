@@ -7,11 +7,22 @@ import fr.eni.enchere.projet.utilisateur.dal.UtilisateurJdbcImpl;
 
 public interface DAOFactory {
 	
-	public static ArticleEnVenteDAO GetArticle() {
+	public static ArticleEnVenteDAO GetArticleDAO() {
 		return new ArticleEnVenteJdbcImpl();
 	}
 	public static UtilisateurDAO getUtilisateurDAO() {
 		return new UtilisateurJdbcImpl();
 	}
-
+	
+	public static RetraitDAO getRetraitDAO() {
+		return new RetraitJdbcImpl();
+	}
+	
+	public static CategorieDAO getCategorieDAO() {
+		return new CategorieJdbcImpl();
+	}
+	
+	public static EnchereDAO getEnchereDAO() {
+		return new EnchereJdbcImpl();
+	}
 }
