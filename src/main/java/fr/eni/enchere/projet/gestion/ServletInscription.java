@@ -54,11 +54,13 @@ public class ServletInscription extends HttpServlet {
 			utilisateur.setVille(ville);
 			utilisateur.setMotDePasse(motDePasse);
 			utilisateurDao.insert(utilisateur);
+			request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
+			System.out.println("insertion réussi");
 		}
 		else {
+			System.out.println("erreur lors de l'insertion");
 			doGet(request, response);
 		}	
-		request.getRequestDispatcher("WEB-INF/accueil.jsp").forward(request, response);
 		
 		
 	}
