@@ -1,7 +1,5 @@
 package fr.eni.enchere.projet.dal;
 
-import java.util.List;
-
 import fr.eni.enchere.projet.bo.ArticleEnVente;
 import fr.eni.enchere.projet.bo.Retrait;
 

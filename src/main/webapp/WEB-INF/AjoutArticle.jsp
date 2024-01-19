@@ -55,12 +55,30 @@
         </div>
     </div>
     
-    
-    <button type="submit" class="btn btn-primary">Ajouter l'article</button>
-    <a href="index.html" type="submit" class="btn btn-secondary"> Annuler </a>
-    
+            <!--Bloc Adresse du retrait -->
+    </div>
+      <div class="form-group">
+          <label for="ville">Ville</label>
+          <input type="text" id="ville" name="villeRetrait" class="form-control" >
+
+
+          <label for="code_postal">Code Postal (format:"00000")</label>
+          <input type="text" id="code_postal" name="code_postal" class="form-control" pattern="[0-9]*">
+
+
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" name="rueRetrait" class="form-control" />
+
+
+
+      </div>
+
+      <button type="submit" class="btn btn-primary">Ajouter l'article</button>
+      <a href="./WEB-INF/index.jsp" type="submit" class="btn btn-secondary"> Annuler </a>
+
   </form>
 </div>
+
 
 
 

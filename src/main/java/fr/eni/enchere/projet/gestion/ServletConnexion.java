@@ -2,12 +2,14 @@ package fr.eni.enchere.projet.gestion;
 
 import java.io.IOException;
 
-import fr.eni.enchere.projet.dal.LoginDao;
+import fr.eni.enchere.projet.bll.CorrespondanceMailID;
+import fr.eni.enchere.projet.bll.Login;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletConnexion
@@ -28,17 +30,22 @@ public class ServletConnexion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		String email = request.getParameter("email");
 		String motDePasse =request.getParameter("mot_de_passe");
 		
-		if(LoginDao.validationConnexion(email, motDePasse)==true) {
+		if(Login.validationConnexion(email, motDePasse)==true) {
+			
+			int noUtilisateur = CorrespondanceMailID.recuperationID(email);
+			HttpSession session = request.getSession();
+			session.setAttribute("noUtilisateur", noUtilisateur);
+			session.setMaxInactiveInterval(300);
+
 			request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
-			System.out.println("Connexion réussi");
 		}
 		else {
 			
 			doGet(request, response);
-			System.out.println("connexion échouée");
 		}
 	}
 

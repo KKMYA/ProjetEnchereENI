@@ -15,35 +15,37 @@ import fr.eni.enchere.projet.dal.ConnectionProvider;
 
 public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 
-	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLE_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente,"
+	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente,"
 			+ "no_utilisateur, no_categorie) VALUES(?,?,?,?,?,?,?,?)";
-	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLE_VENDUS WHERE no_artlcle=?";
-	private static final String UPDATE_ARTICLE_NOM_ARTICLE = "UPDATE ARTICLE_VENDUS SET nom_article = ? WHERE no_article = ?";
-	private static final String UPDATE_ARTICLE_DESCRIPTION = "UPDATE ARTICLE_VENDUS SET description = ? WHERE no_article = ?";
+	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES_VENDUS WHERE no_artlcle=?";
+	private static final String UPDATE_ARTICLE_NOM_ARTICLE = "UPDATE ARTICLES_VENDUS SET nom_article = ? WHERE no_article = ?";
+	private static final String UPDATE_ARTICLE_DESCRIPTION = "UPDATE ARTICLES_VENDUS SET description = ? WHERE no_article = ?";
 	private static final String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
 	private static final String SELECT_BY_ID_VENDEUR = "SELECT * FROM ARTICLE_VENDUS WHERE no_utilisateur = ?";
-	private static final String SELECT_ALL = "SELECT * FROM ARTICLE_VENDUS";
+	private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS";
 
 	
 	@Override
-	public int ajouterArticle(ArticleEnVente articleEnVente){
+	public int ajouterArticle(ArticleEnVente articleEnVente, int noUtilisateur){
 		
 		int key = -1;
 		
 		LocalDate aujourdhui = LocalDate.now();
 		LocalDate quinzeJours = aujourdhui.plusDays(15);
 		
+		
 		try(Connection con = ConnectionProvider.getConnection();	
 				
 			PreparedStatement stmt = con.prepareStatement(INSERT_ARTICLE, Statement.RETURN_GENERATED_KEYS);)
 		{
-			stmt.setString(1,"nom_article");
-			stmt.setString(2, "description");
-			stmt.setDate(3, Date.valueOf(aujourdhui));
-			stmt.setDate(4, Date.valueOf(quinzeJours));
-			stmt.setInt(5, Integer.valueOf("prix_initial"));
-			stmt.setInt(6, Integer.valueOf(null));
-			System.out.println(articleEnVente +"JDBC");
+			stmt.setString(1,articleEnVente.getNomArticle());
+			stmt.setString(2, articleEnVente.getDescription());
+			stmt.setDate(3, Date.valueOf(LocalDate.now()));
+			stmt.setDate(4, Date.valueOf(LocalDate.now()));
+			stmt.setInt(5, articleEnVente.getMiseAPrix());
+			stmt.setInt(6, 0);
+			stmt.setInt(7, noUtilisateur);
+			stmt.setInt(8, articleEnVente.getNoCategorie());
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if(rs.next()) {
@@ -52,7 +54,6 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-			
 		return key;
 		
 	}
@@ -68,7 +69,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	} 
 
 	@Override
 	public void modifierNomArticle(ArticleEnVente articleEnVente) {
