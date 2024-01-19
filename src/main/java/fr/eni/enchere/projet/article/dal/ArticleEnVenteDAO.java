@@ -6,7 +6,7 @@ import fr.eni.enchere.projet.bo.ArticleEnVente;
 
 public interface ArticleEnVenteDAO {
 	
-	public int ajouterArticle(ArticleEnVente articleEnVente);
+	public int ajouterArticle(ArticleEnVente articleEnVente, int noUtilisateur);
 	
 	public void supprimerArticle(int noArticle);
 	

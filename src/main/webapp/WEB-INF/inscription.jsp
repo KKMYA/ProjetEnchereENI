@@ -87,7 +87,7 @@
                 name="ville" 
                 required
                 placeholder="ville"
-                pattern="[A-Z a-z]{3,}"
+                
                 title=""><br>
 
                 <label for="mot_de_passe">Mot de passe: </label>
