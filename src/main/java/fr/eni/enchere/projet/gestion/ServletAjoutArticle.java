@@ -25,7 +25,7 @@ public class ServletAjoutArticle extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/Vendre").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/AjoutArticle.jsp").forward(request, response);
 
 }
 
@@ -54,7 +54,9 @@ public class ServletAjoutArticle extends HttpServlet {
 		int noArticle = -1;
 		
 		try {
+			System.out.println(nomArticle+description+prixInitial+rueRetrait+codePostalRetrait+villeRetrait);
 			noArticle = articleDAO.ajouterArticle(article);
+			
 	
 		} catch (Exception e) {
 			response.sendError(1, "ERREUR DAL");
@@ -69,7 +71,7 @@ public class ServletAjoutArticle extends HttpServlet {
 
 		retraitDAO.ajouterRetrait(retrait);
 				
-		doGet(request, response);
+		response.sendRedirect("/WEB-INF/index.jsp");
 
 	}
 

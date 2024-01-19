@@ -43,6 +43,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 			stmt.setDate(4, Date.valueOf(quinzeJours));
 			stmt.setInt(5, Integer.valueOf("prix_initial"));
 			stmt.setInt(6, Integer.valueOf(null));
+			System.out.println(articleEnVente +"JDBC");
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if(rs.next()) {
