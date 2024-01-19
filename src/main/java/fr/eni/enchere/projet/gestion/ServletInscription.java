@@ -48,13 +48,12 @@ public class ServletInscription extends HttpServlet {
 			utilisateur.setPrenom(prenom);
 			utilisateur.setEmail(email);
 			utilisateur.setTelephone(telephone);
-			utilisateur.setTelephone(telephone);
 			utilisateur.setRue(rue);
 			utilisateur.setCodePostal(codePostal);
 			utilisateur.setVille(ville);
 			utilisateur.setMotDePasse(motDePasse);
 			utilisateurDao.insert(utilisateur);
-			request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
+			response.sendRedirect("WEB-INF/index.jsp");
 			System.out.println("insertion réussi");
 		}
 		else {
