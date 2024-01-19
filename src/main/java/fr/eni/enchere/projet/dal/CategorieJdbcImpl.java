@@ -16,6 +16,7 @@ public class CategorieJdbcImpl implements CategorieDAO{
 	private static final String DELETE_CATEGORIE = "DELETE FROM CATEGORIES WHERE no_categorie=?";
 	private static final String UPDATE_CATEGORIE_NOM = "UPDATE CATEGORIES SET libelle=? WHERE no_categorie=?";
 	private static final String SELECT_CATEGORIE = "SELECT * FROM CATEGORIES";
+	private static final String SELECT_ID_CATEGORIE = "SELECT no_categorie FROM CATEGORIES where libelle=?";
 	
 	
 	
@@ -96,6 +97,32 @@ public class CategorieJdbcImpl implements CategorieDAO{
 					e.printStackTrace();
 				}
 		return toutesLesCategories;
+	}
+
+
+	@Override
+	public int quelleCategorie(String categorie) {
+		
+		int indexCategorie = -1;
+		try(Connection con = ConnectionProvider.getConnection();
+				
+				PreparedStatement stmt = con.prepareStatement(SELECT_ID_CATEGORIE);)
+			{
+			stmt.setString(2, categorie);		
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+			indexCategorie = rs.getInt(1);
+			}
+			
+		
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+	
+		return indexCategorie;
 	}
 }
 	

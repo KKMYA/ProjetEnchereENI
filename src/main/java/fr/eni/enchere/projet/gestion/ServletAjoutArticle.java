@@ -33,27 +33,44 @@ public class ServletAjoutArticle extends HttpServlet {
 		
 		String nomArticle = request.getParameter("nom_article");
 		String description = request.getParameter("description_article");
-		int prixInitial = Integer.parseInt(request.getParameter("prix_initial_de_vente"));
 		String categorie = request.getParameter("categorieChoix");
+		String rueRetrait = request.getParameter("rueRetrait");
+		String codePostalRetrait = request.getParameter("code_postal");
+		String villeRetrait = request.getParameter("villeRetrait");
 		
-		ArticleEnVente	article = new ArticleEnVente();
+		int prixInitial = Integer.parseInt(request.getParameter("prix_initial_de_vente"));
+		
+		ArticleEnVente article = new ArticleEnVente();
 		Retrait retrait = new Retrait();
 		
 		article.setNomArticle(nomArticle);
 		article.setDescription(description);
 		article.setPrixVente(prixInitial);
 		
-		int noArticle = articleDAO.ajouterArticle(article);
+		retrait.setRue(rueRetrait);
+		retrait.setCodePostal(codePostalRetrait);
+		retrait.setVille(villeRetrait);		
 		
-		if(nomArticle !=null && description !=null && prixInitial>=0) {
-		articleDAO.ajouterArticle(article);
-		}else {
-		doGet(request, response);
+		int noArticle = -1;
+		
+		try {
+			noArticle = articleDAO.ajouterArticle(article);
+	
+		} catch (Exception e) {
+			response.sendError(1, "ERREUR DAL");
+			return;
 		}
 		
 		retrait.setNoArticle(noArticle);
-				
+		int categorieIndex = categorieDAO.quelleCategorie(categorie);
+
+		article.setNoCategorie(categorieIndex);
 		
+
+		retraitDAO.ajouterRetrait(retrait);
+				
+		doGet(request, response);
+
 	}
 
 }
