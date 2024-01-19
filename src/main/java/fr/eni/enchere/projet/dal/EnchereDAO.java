@@ -11,4 +11,7 @@ public interface EnchereDAO {
 	public List<Enchere> selectEnchere();
 
 	public void insert(Utilisateur utilisateur, Enchere enchere, ArticleEnVente articleEnVente);
+	
+	
+	
 }

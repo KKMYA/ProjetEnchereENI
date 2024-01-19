@@ -3,8 +3,12 @@ package fr.eni.enchere.projet.dal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.enchere.projet.bo.ArticleEnVente;
@@ -33,13 +37,8 @@ public class EnchereJdbcImpl implements EnchereDAO {
 		
 	}
 
-	@Override
-	public List<Enchere> selectEnchere() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	/*@Override
+	@Override
 	public List<Enchere> selectEnchere() {
 		List<Enchere> listeEncheres = new ArrayList<>();
 		
@@ -60,6 +59,7 @@ public class EnchereJdbcImpl implements EnchereDAO {
 							localDateTime,
 							rs.getInt("montant_enchere")
 							);
+					listeEncheres.add(enchere);
 				}
 		} catch (SQLException e) {
 
@@ -67,7 +67,7 @@ public class EnchereJdbcImpl implements EnchereDAO {
 		}
 		
 		return null;
-	}*/
+	}
 	
 	
 }

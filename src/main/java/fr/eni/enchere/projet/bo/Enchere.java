@@ -3,24 +3,25 @@ package fr.eni.enchere.projet.bo;
 import java.time.LocalDateTime;
 
 public class Enchere{
-	private Utilisateur utilisateur;
-	private ArticleEnVente articleEnVente;
+	private int noUtilisateur;
+	private int  noArticleEnVente;
 	private LocalDateTime dateEnchere;
 	private Integer montantEnchere;
 	
 	public Enchere() {
 	
 }
-	
-	
-	public Enchere(Utilisateur utilisateur, ArticleEnVente articleEnVente, LocalDateTime dateEnchere,
-			Integer montantEnchere) {
+
+	public Enchere(int noUtilisateur, int noArticleEnVente, LocalDateTime dateEnchere, Integer montantEnchere) {
 		super();
-		this.utilisateur = utilisateur;
-		this.articleEnVente = articleEnVente;
+		this.noUtilisateur = noUtilisateur;
+		this.noArticleEnVente = noArticleEnVente;
 		this.dateEnchere = dateEnchere;
 		this.montantEnchere = montantEnchere;
 	}
+
+
+
 
 
 	public Enchere(LocalDateTime dateEnchere, Integer montantEnchere) {
@@ -49,6 +50,22 @@ public class Enchere{
 		this.montantEnchere = montantEnchere;
 	}
 
+	
+	public int getNoUtilisateur() {
+		return noUtilisateur;
+	}
+	
+	public void setNoUtilisateur(int noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+	
+	public int getNoArticleEnVente() {
+		return noArticleEnVente;
+	}
+	
+	public void setNoArticleEnVente(int noArticleEnVente) {
+		this.noArticleEnVente = noArticleEnVente;
+	}
 	@Override
 	public String toString() {
 		return "Enchere [dateEnchere=" + dateEnchere + ", montantEnchere=" + montantEnchere + "]";

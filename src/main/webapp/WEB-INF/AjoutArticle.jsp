@@ -17,14 +17,14 @@
   
   
     <!--Définition du formulaire d'ajout d'article -->
-  <form method="post" action="./ServletAjoutArticle">
+  <form method="post" action="./AjoutArticle">
     <div class="form-group">
-      <label for="nomArticle">Nom de l'article :</label>
-      <input type="text" class="form-control" id="nomArticle" name="nomArticle" placeholder="Entrez le nom de l'article" required>
+      <label for="nom_article">Nom de l'article :</label>
+      <input type="text" class="form-control" id="nomArticle" name="nom_article" placeholder="Entrez le nom de l'article" required>
     </div>
     <div class="form-group">
       <label for="description">Description :</label>
-      <textarea class="form-control" id="description" name="description" rows="3" placeholder="Entrez la description du produit" required></textarea>
+      <textarea class="form-control" id="description" name="description_article" rows="3" placeholder="Entrez la description du produit" required></textarea>
     </div>
     
     
@@ -44,7 +44,7 @@
     
     <div class="form-group">
       <label for="prix">Prix en points:</label>
-      <input type="number" class="form-control" id="prix" name="prix" placeholder="Entrez le prix du produit" required>
+      <input type="number" class="form-control" id="prix" name="prix_initial_de_vente" placeholder="Entrez le prix du produit" required>
     </div>
     <div class="form-group">
       <label for="photo">URL de la photo :</label>
