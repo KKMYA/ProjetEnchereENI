@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import fr.eni.enchere.projet.bo.Utilisateur;
@@ -23,6 +25,7 @@ public class ServletInscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
 		request.getRequestDispatcher("WEB-INF/inscription.jsp").forward(request, response);
 	}
 
@@ -53,7 +56,7 @@ public class ServletInscription extends HttpServlet {
 			utilisateur.setVille(ville);
 			utilisateur.setMotDePasse(motDePasse);
 			utilisateurDao.insert(utilisateur);
-			response.sendRedirect("WEB-INF/index.jsp");
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);;
 			System.out.println("insertion réussie");
 		}
 		else {
