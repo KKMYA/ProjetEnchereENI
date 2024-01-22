@@ -14,7 +14,7 @@ import fr.eni.enchere.projet.utilisateur.dal.UtilisateurDAO;
 /**
  * Servlet implementation class ServletInscription
  */
-@WebServlet(urlPatterns = "/Inscription")
+@WebServlet(urlPatterns = "/inscription")
 public class ServletInscription extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     UtilisateurDAO utilisateurDao = DAOFactory.getUtilisateurDAO();   
@@ -23,7 +23,7 @@ public class ServletInscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/Inscription.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/inscription.jsp").forward(request, response);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class ServletInscription extends HttpServlet {
 			utilisateur.setMotDePasse(motDePasse);
 			utilisateurDao.insert(utilisateur);
 			response.sendRedirect("WEB-INF/index.jsp");
-			System.out.println("insertion réussi");
+			System.out.println("insertion réussie");
 		}
 		else {
 			System.out.println("erreur lors de l'insertion");
