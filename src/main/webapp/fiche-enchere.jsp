@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
     <html>
         <head>
@@ -9,25 +11,27 @@
             <h1>Détail vente</h1>
             <img>
             <!-- Titre à générer -->
-            <h2></h2>
+            <h2>${article.nomArticle}</h2>
 
             <!--Description du produit récupéré-->
-            <p>Description: </p>
+            <c:if test="${article!==null}">
+            <p>Description: ${article.description_article} </p>
+
 
             <!--Catégorie affilié lors de la création de la vente-->
-            <p>Catégorie: </p>
+            <p>Catégorie: ${article.catégorieIndex} </p>
 
             <!--Meilleure offre en temps réel-->
-            <p>Meilleure offre:</p> 
+            <p>Meilleure offre: ${article.offre}</p>
 
-            <p>Mise à prix: </p>
+            <p>Mise à prix:${article.prixInitial} </p>
 
-            <p>Fin de l'enchère: </p>
+            <p>Fin de l'enchère:${article.dateFin} </p>
 
-            <p>Retrait: </p>
+            <p>Retrait:${article.adresse} </p>
 
-            <p>Vendeur: </p>
-
+            <p>Vendeur:${article.vendeurArticle} </p>
+            </c:if>
             <form method="post">
                 <label>Ma proposition: </label>
                 <input  type="number" id="proposition" name="proposition" required>
