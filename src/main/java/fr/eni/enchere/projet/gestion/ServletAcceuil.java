@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
+import fr.eni.enchere.projet.bll.SearchBar;
 import fr.eni.enchere.projet.bo.ArticleEnVente;
 import fr.eni.enchere.projet.dal.DAOFactory;
 import jakarta.servlet.ServletException;
@@ -24,9 +25,19 @@ public class ServletAcceuil extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		
+		if(request.getAttribute("Rechercher") != null){
+			String recherche = request.getAttribute("Rechercher").toString();
+			List<ArticleEnVente> listeArticlesRecherches = SearchBar.afficherArticlesRecherches(recherche);
+			request.setAttribute("listeArticles", listeArticlesRecherches);
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+
+			
+		}else {
 		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
 		request.setAttribute("listeArticles", listeDeTousLesArticles);
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		}
 		
 	}
 
