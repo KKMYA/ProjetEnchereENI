@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet(urlPatterns = "/Accueil")
+@WebServlet(urlPatterns = "")
 public class ServletAcceuil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticleDAO();
@@ -24,7 +24,7 @@ public class ServletAcceuil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
 		request.setAttribute("listeArticles", listeDeTousLesArticles);
-		request.getRequestDispatcher("/WEB-INF/Accueil");
+		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		
 	}
 

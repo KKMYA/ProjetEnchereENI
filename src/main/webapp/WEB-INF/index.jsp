@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row justify-content-start">
         <div class="col-auto">
-            <a href="./Connexion.html" class="text-decoration-none">
+            <a href="./connexion" class="text-decoration-none">
                 <button class="btn btn-light" type="button" id="Connexion">
                     Se connecter / S'inscrire
                 </button>

@@ -14,14 +14,14 @@
 
   <!-- Entrée Mail -->
   <div class="form-outline mx-auto mb-4" style="width: 25%;">
-    <input type="email" id="email" name="email" class="form-control" />
     <label class="form-label" for="email">Adresse Mail</label>
+    <input type="email" id="email" name="email" class="form-control" />
   </div>
 
   <!-- Entrée MDP -->
   <div class="form-outline mx-auto mb-4" style="width: 25%;">
-    <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" />
     <label class="form-label" for="mot_de_passe">Mot de Passe</label>
+    <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" />
   </div>
 
   <!-- Layout colonne -->
@@ -45,7 +45,7 @@
 
   <!-- Bouton d'inscription -->
   <div class="text-center">
-    <p>Pas inscrit? <a href="./Inscription.html">S'inscrire</a></p>
+    <p>Pas inscrit? <a href="./inscription">S'inscrire</a></p>
 
   </div>
 </form>
