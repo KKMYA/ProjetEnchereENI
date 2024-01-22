@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 
 
 
-@WebServlet(urlPatterns = "/Accueil")
+@WebServlet(urlPatterns = "")
 public class ServletAcceuil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticleDAO();
@@ -26,7 +26,7 @@ public class ServletAcceuil extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
 		request.setAttribute("listeArticles", listeDeTousLesArticles);
-		request.getRequestDispatcher("/WEB-INF/Accueil");
+		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		
 	}
 

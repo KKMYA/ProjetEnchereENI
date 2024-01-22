@@ -115,7 +115,7 @@
 
         </form>
 
-        <form action="index.jsp">
+        <form action="./">
             <input type="submit" value="Annuler">
         </form>
 
