@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +13,29 @@
 </head>
 <body style="background-color: aqua">
 <h1 class="text-center">ENI ENCHERES</h1>
+<c:if test="${noUtilisateur==null}">
+	<div class="container">
+	    <div class="row justify-content-start">
+	        <div class="col-auto">
+	            <a href="./connexion" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Connexion">
+	                    Se connecter / S'inscrire
+	                </button>
+	            </a>
+	  	</div>
+</c:if>
+<c:if test="${noUtilisateur!=null}">
+		 <div class="row justify-content-start">
+	        <div class="col-auto">
+	            <a href="./connexion" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Connexion">
+	                    Mon profil
+	                </button>
+	            </a>
+	            
+	  	</div>
 
-<div class="container">
-    <div class="row justify-content-start">
-        <div class="col-auto">
-            <a href="./connexion" class="text-decoration-none">
-                <button class="btn btn-light" type="button" id="Connexion">
-                    Se connecter / S'inscrire
-                </button>
-            </a>
-        </div>
-
+</c:if>
         <div class="col-auto">
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
