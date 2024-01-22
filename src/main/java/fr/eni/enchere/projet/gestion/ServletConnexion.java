@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class ServletConnexion
  */
-@WebServlet("/connexion")
+@WebServlet(urlPatterns = "/connexion")
 public class ServletConnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,7 +23,15 @@ public class ServletConnexion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+		
+		if(session != null && session.getAttribute("noUtilisateur") != null) {
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+
+		}
+		else {
+			request.getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
+
+		}
 	}
 
 	/**
@@ -34,6 +42,8 @@ public class ServletConnexion extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String motDePasse =request.getParameter("mot_de_passe");
+		
+		
 		
 		if(Login.validationConnexion(email, motDePasse)==true) {
 			

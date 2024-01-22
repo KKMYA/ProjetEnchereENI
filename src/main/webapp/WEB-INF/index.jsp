@@ -60,7 +60,9 @@
 
     <div class="input-group w-25 ms-3">
         <input type="search" class="form-control rounded" id="Rechercher" name="Rechercher" placeholder="Rechercher" aria-label="Search" aria-describedby="search-addon" />
-        <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Rechercher</button>
+        <a href ="./">
+        	<button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Rechercher</button>
+        </a>
     </div>
 </form>
 
