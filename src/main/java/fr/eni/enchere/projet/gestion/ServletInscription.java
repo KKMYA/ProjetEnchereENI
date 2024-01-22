@@ -56,7 +56,7 @@ public class ServletInscription extends HttpServlet {
 			utilisateur.setVille(ville);
 			utilisateur.setMotDePasse(motDePasse);
 			utilisateurDao.insert(utilisateur);
-			response.sendRedirect("WEB-INF/index.jsp");
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);;
 			System.out.println("insertion réussie");
 		}
 		else {
