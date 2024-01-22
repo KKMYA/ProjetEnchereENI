@@ -4,15 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import fr.eni.enchere.projet.bo.ArticleEnVente;
 import fr.eni.enchere.projet.bo.Retrait;
 
 public class RetraitJdbcImpl implements RetraitDAO {
 	
-	private static final String INSERT_RETRAIT = "INSERT INTO RETRAITS(rue, code_postal, ville) VALUES (?,?,?)";
+	private static final String INSERT_RETRAIT = "INSERT INTO RETRAITS(no_article, rue, code_postal, ville) VALUES (?,?,?,?)";
 	private static final String DELETE_RETRAIT = "DELETE FROM RETRAITS WHERE no_article=?";
 	private static final String UPDATE_RETRAIT = "UPDATE RETRAITS SET rue=?, code_postal=?, ville=? WHERE no_article=?";
 	private static final String SELECT_RETRAIT_ID = "SELECT RETRAITS FROM CATEGORIES WHERE no_artcle =?";
@@ -24,9 +22,10 @@ public class RetraitJdbcImpl implements RetraitDAO {
 				PreparedStatement stmt = con.prepareStatement(INSERT_RETRAIT);) 
 				{
 			
-			stmt.setString(1, "rue");
-			stmt.setString(2, "code_postal");
-			stmt.setString(3, "ville");
+			stmt.setInt(1, retrait.getNoArticle());
+			stmt.setString(2, retrait.getRue());
+			stmt.setString(3, retrait.getCodePostal());
+			stmt.setString(4, retrait.getVille());
 			stmt.executeUpdate();
 					
 		} catch (SQLException e) {

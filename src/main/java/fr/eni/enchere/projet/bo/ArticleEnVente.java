@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class ArticleEnVente {
 
+	private int noUtilisateur;
 	private int noCategorie;
 	private int noArticle;
 	private String nomArticle;
@@ -19,6 +20,21 @@ public class ArticleEnVente {
 	public ArticleEnVente() {
 	}
 
+	
+	public ArticleEnVente(int noUtilisateur, int noCategorie, int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+		super();
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+		this.noCategorie = noCategorie;
+		this.noUtilisateur = noUtilisateur;
+	}
 	
 	public ArticleEnVente(int noCategorie, int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
 			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
@@ -110,7 +126,6 @@ public class ArticleEnVente {
 	public void setEtatVente(String etatVente) {
 		this.etatVente = etatVente;
 	}
-
 	
 	
 	public int getNoCategorie() {
@@ -121,12 +136,26 @@ public class ArticleEnVente {
 	}
 	
 	
+	public int getNoUtilisateur() {
+		return noUtilisateur;
+	}
+
+
+	public void setNoUtilisateur(int noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+
+
 	@Override
 	public String toString() {
-		return "ArticleEnVente [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
-				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
+		return "ArticleEnVente [noUtilisateur=" + noUtilisateur + ", noCategorie=" + noCategorie + ", noArticle="
+				+ noArticle + ", nomArticle=" + nomArticle + ", description=" + description + ", dateDebutEncheres="
+				+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
+				+ ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
 	}
+
+
+
 	
 	
 }
