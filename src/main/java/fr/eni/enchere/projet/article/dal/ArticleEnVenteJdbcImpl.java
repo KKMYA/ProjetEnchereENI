@@ -21,7 +21,7 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 	private static final String UPDATE_ARTICLE_NOM_ARTICLE = "UPDATE ARTICLES_VENDUS SET nom_article = ? WHERE no_article = ?";
 	private static final String UPDATE_ARTICLE_DESCRIPTION = "UPDATE ARTICLES_VENDUS SET description = ? WHERE no_article = ?";
 	private static final String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
-	private static final String SELECT_BY_ID_VENDEUR = "SELECT * FROM ARTICLE_VENDUS WHERE no_utilisateur = ?";
+	private static final String SELECT_BY_ID_VENDEUR = "SELECT * FROM ARTICLES_VENDUS WHERE no_utilisateur = ?";
 	private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS";
 
 	

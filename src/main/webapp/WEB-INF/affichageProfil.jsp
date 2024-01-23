@@ -51,8 +51,9 @@
                 </div>
                 <div class="col-md-2">
                 <a href="./ModificationProfil.jsp"><input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/></a>
-                    
-                 <a href=""><input type="submit" class="homepage-btn" name="homepage" value="Retour à l'accueil"/></a>   
+               	<button>
+                 <a href="${pageContext.request.contextPath}/">Retour à l'accueil</a>  
+                </button>
                 </div>
             </div>
             <div class="row">
@@ -133,74 +134,27 @@
                                 </div>
                             </div>
                         </div>
-                        
+    <c:if test="${not empty listeArticles}">
+    <c:forEach var="article" items="${listeArticles}">
                         <div class="tab-pane fade" id="AVendre" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="card">
                                 <div class="col-md-6">
                                     <div class="row mt-4">
                                         <div class="col-md-4 mb-4">
                                             <div class="card">
-                                                <h5 class="card-title">Article 1</h5>
-                                                <p class="card-text">Description article 1</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 1</small></p>
+                                                <h5 class="card-title">${article.nomArticle}</h5>
+                                                <p class="card-text">${article.description}</p>
+                                                <p class="card-text"><small class="text-muted">Vendu par: ${utilisateur.pseudo}</small></p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 2</h5>
-                                                <p class="card-text">Description article 2</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 2</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 3</h5>
-                                                <p class="card-text">Description article 3</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 3</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="Vendus" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="card">
-                                <div class="col-md-6">
-                                    <div class="row mt-4">
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 4</h5>
-                                                <p class="card-text">Description article 4</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 4</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 5</h5>
-                                                <p class="card-text">Description article 5</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 5</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 6</h5>
-                                                <p class="card-text">Description article 6</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 6</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-            </div>
-         
+            						</div> 
+         						</div>
+         					</div>	
+         				</div>
+     </c:forEach>
+     </c:if>    				
         </form>
     </div>
-
-
-
 </div>
 
 
