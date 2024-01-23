@@ -29,6 +29,7 @@ public class ServletDetailEnchere extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		request.getParameter("articleId");
 		System.out.println(Integer.parseInt(request.getParameter("articleId").toString()));
+		request.getRequestDispatcher("WEB-INF/FicheEnchere.jsp").forward(request, response);
 
 		doGet(request, response);
 	}
