@@ -15,8 +15,6 @@ public class ArticleEnVente {
 	private int prixVente;
 	private String etatVente;
 	
-
-	
 	public ArticleEnVente() {
 	}
 

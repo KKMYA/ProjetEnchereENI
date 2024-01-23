@@ -14,7 +14,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="container mt-5">
 
-    <%@include file="HeaderFooter.jsp" %>
+    <%-- <%@include file="HeaderFooter.jsp" %> --%>
   <h2>Ajouter un article à vendre</h2>
   
   
