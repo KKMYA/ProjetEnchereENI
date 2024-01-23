@@ -2,6 +2,8 @@ package fr.eni.enchere.projet.gestion;
 
 import java.io.IOException;
 
+import javax.xml.stream.Location;
+
 import fr.eni.enchere.projet.bll.CorrespondanceMailID;
 import fr.eni.enchere.projet.bll.Login;
 import jakarta.servlet.ServletException;
@@ -49,6 +51,7 @@ public class ServletConnexion extends HttpServlet {
 			
 			int noUtilisateur = CorrespondanceMailID.recuperationID(email);
 			HttpSession session = request.getSession();
+			
 			session.setAttribute("noUtilisateur", noUtilisateur);
 			session.setMaxInactiveInterval(300);
 

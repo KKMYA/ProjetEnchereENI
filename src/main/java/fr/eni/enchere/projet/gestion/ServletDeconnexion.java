@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "")
+@WebServlet(urlPatterns = "/deconnexion")
 public class ServletDeconnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,7 +22,7 @@ public class ServletDeconnexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
-		
+
 		if(request.getAttribute("Deconnexion") != null) {
 			session.invalidate();
 			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);

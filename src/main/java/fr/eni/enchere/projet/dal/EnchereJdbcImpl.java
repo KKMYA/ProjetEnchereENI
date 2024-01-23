@@ -19,6 +19,8 @@ public class EnchereJdbcImpl implements EnchereDAO {
 
 	private static final String INSERT_ENCHERE ="INSERT INTO ENCHERES (no_utilisateur, no_article, date_enchere, montant_enchere) WHERE (?,?,?,?)";
 	private static final String SELECT_ALL_ENCHERE = "SELECT*FROM ENCHERES";
+	private static final String SELECT_ENCHERE_BY_ID = "SELECT * FROM ENCHERES WHERE no_utilisateur =?" ;
+	private static final String SELECT_ENCHERE_BY_ARTICLE = "SELECT * FROM ENCHERE WHERE no_article=?";
 	
 	@Override
 	public void insert(Utilisateur utilisateur,Enchere enchere,ArticleEnVente articleEnVente) {
@@ -69,5 +71,52 @@ public class EnchereJdbcImpl implements EnchereDAO {
 		return null;
 	}
 	
+	@Override
+	public List<Enchere> selectEnchereById(int no_utilisateur) {
+		List<Enchere> listeEnchere = new ArrayList<>();
+		
+		try(
+		Connection con = ConnectionProvider.getConnection();
+		PreparedStatement stmt = con.prepareStatement(SELECT_ENCHERE_BY_ID)) {
+			stmt.setInt(1, no_utilisateur);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Enchere enchere = new Enchere();
+				enchere.setNoArticleEnVente(rs.getInt("no_article"));
+				enchere.setDateEnchere(rs.getTimestamp("date_enchere").toLocalDateTime());
+				enchere.setMontantEnchere(rs.getInt("montant_enchere"));
+				
+				listeEnchere.add(enchere);
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return listeEnchere;
+	}
 	
+	public List<Enchere>selectEnchereByIdArticle(int no_article){
+		List<Enchere>listeEnchere = new ArrayList<>();
+		
+		try(Connection con = ConnectionProvider.getConnection();
+			PreparedStatement stmt =con.prepareStatement(SELECT_ENCHERE_BY_ARTICLE)) {
+			stmt.setInt(1,no_article);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Enchere enchere = new Enchere();
+				enchere.setNoUtilisateur(rs.getInt("no_utilisateur"));
+				enchere.setDateEnchere(rs.getTimestamp("date_enchere").toLocalDateTime());
+				enchere.setMontantEnchere(rs.getInt("montant_enchere"));
+				
+				listeEnchere.add(enchere);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listeEnchere;
+	}
 }
