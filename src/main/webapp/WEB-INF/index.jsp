@@ -27,12 +27,16 @@
 <c:if test="${noUtilisateur!=null}">
 		 <div class="row justify-content-start">
 	        <div class="col-auto">
-	            <a href="./connexion" class="text-decoration-none">
+	            <a href="./affichageProfil" class="text-decoration-none">
 	                <button class="btn btn-light" type="button" id="Connexion">
 	                    Mon profil
 	                </button>
 	            </a>
-	            
+	            <a href="./deconnexion" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Deconnexion">
+	                    Se déconnecter
+	                </button>
+	            </a>
 	  	</div>
 
 </c:if>
@@ -75,16 +79,17 @@
     </div>
 </form>
 
-<c:if test="${listeDeTousLesArticles != null}">
-    <c:forEach var="article" items="${listeDeTousLesArticle}">
-<div class="row mt-4">
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">${article.nomArticle}</h5>
-            <p class="card-text"> ${article.description_article} </p>
-            <p class="card-text"><small class="text-muted">${article.vendeurArticle}</small></p>
+        <c:if test="${not empty listeArticles}">
+    <c:forEach var="article" items="${listeArticles}">
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <h5 class="card-title"><c:out value="${article.nomArticle}" /></h5>
+                    <p class="card-text"><c:out value="${article.description}" /></p>
+                    <p class="card-text"><small class="text-muted"><c:out value="${article.noUtilisateur}" /></small></p>
+                </div>
+            </div>
         </div>
-    </div>
         <%--<div class="col-md-4 mb-4">
             <div class="card">
                 <h5 class="card-title">${article.nomArticle}</h5>
