@@ -27,7 +27,7 @@
 <c:if test="${noUtilisateur!=null}">
 		 <div class="row justify-content-start">
 	        <div class="col-auto">
-	            <a href="./connexion" class="text-decoration-none">
+	            <a href="./affichageProfil" class="text-decoration-none">
 	                <button class="btn btn-light" type="button" id="Connexion">
 	                    Mon profil
 	                </button>
