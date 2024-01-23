@@ -37,7 +37,6 @@ public class ServletAcceuil extends HttpServlet {
 
 			
 		}else {
-//		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
 		request.setAttribute("listeArticles", listeDeTousLesArticles);
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		}
