@@ -2,7 +2,6 @@ package fr.eni.enchere.projet.gestion;
 
 import java.io.IOException;
 import java.util.List;
-
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
 import fr.eni.enchere.projet.bll.IdentificationPseudo;
 import fr.eni.enchere.projet.bo.ArticleEnVente;
@@ -14,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
 
 	@WebServlet("/affichageProfil")
 	public class ServletAffichageProfil extends HttpServlet {
@@ -36,8 +36,8 @@ import jakarta.servlet.http.HttpSession;
 			}
 		}
 	
+
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			// TODO Auto-generated method stub
 			doGet(request, response);
 		}
 	
