@@ -1,11 +1,13 @@
 package fr.eni.enchere.projet.bll;
 
+import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.ConnectionProvider;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class RecuperationMDP {
 
@@ -24,6 +26,8 @@ public class RecuperationMDP {
             if (rs.next()) {
                 //check = true;
                 check = rs.next();
+                int random = Utilisateur.setRandomKey();
+
             }
 
         } catch (SQLException e) {

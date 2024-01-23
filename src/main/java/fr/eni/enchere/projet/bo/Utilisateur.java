@@ -1,6 +1,9 @@
 package fr.eni.enchere.projet.bo;
 
+import java.util.Random;
+
 public class Utilisateur {
+
 	private int noUtilisateur;
 	private String pseudo;
 	private String nom;
@@ -12,6 +15,7 @@ public class Utilisateur {
 	private String ville;
 	private String motDePasse;
 	private Integer credit=0;
+	private int randomKey;
 	private boolean administrateur=false;
 	
 	
@@ -20,7 +24,7 @@ public class Utilisateur {
 	}
 
 	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, String codePostal, String ville, String motDePasse, Integer credit, boolean administrateur) {
+					   String rue, String codePostal, String ville, String motDePasse, Integer credit, int randomKey, boolean administrateur) {
 		super();
 		this.noUtilisateur = noUtilisateur;
 		this.pseudo = pseudo;
@@ -33,6 +37,7 @@ public class Utilisateur {
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
+		this.randomKey = randomKey;
 		this.administrateur = administrateur;
 	}
 	
@@ -147,6 +152,15 @@ public class Utilisateur {
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 				+ ", administrateur=" + administrateur + "]";
 	}
-	
-	
+
+
+	public int getRandomKey() {
+		return randomKey;
+	}
+
+	public static int setRandomKey() {
+		Random random = new Random();
+		int randomKey = random.nextInt(1000, 9999);
+		return randomKey;
+	}
 }
