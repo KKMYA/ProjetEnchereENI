@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,29 +13,54 @@
 </head>
 <body style="background-color: aqua">
 <h1 class="text-center">ENI ENCHERES</h1>
+<c:if test="${noUtilisateur==null}">
+	<div class="container">
+	    <div class="row justify-content-start">
+	        <div class="col-auto">
+	            <a href="./connexion" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Connexion">
+	                    Se connecter / S'inscrire
+	                </button>
+	            </a>
+	  	</div>
+</c:if>
+<c:if test="${noUtilisateur!=null}">
+		 <div class="row justify-content-start">
+	        <div class="col-auto">
+	            <a href="./affichageProfil" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Connexion">
+	                    Mon profil
+	                </button>
+	            </a>
+	            <a href="./deconnexion" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Deconnexion">
+	                    Se déconnecter
+	                </button>
+	            </a>
+	  	</div>
 
-<div class="container">
-    <div class="row justify-content-start">
-        <div class="col-auto">
-            <a href="./Connexion.html" class="text-decoration-none">
-                <button class="btn btn-light" type="button" id="Connexion">
-                    Se connecter / S'inscrire
-                </button>
-            </a>
-        </div>
+</c:if>
+<div class="col-auto">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catégories
+        </button>
+        <div class="dropdown-menu" aria-labelledby="Catégories">
+            <c:forEach var="article" items="${categorieInformatique}">
+                <a class="dropdown-item" href="#">Informatique ${article}</a>
+            </c:forEach>
 
-        <div class="col-auto">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catégories
-                </button>
-                <div class="dropdown-menu" aria-labelledby="Catégories">
-                    <a class="dropdown-item" href="#">Informatique</a>
-                    <a class="dropdown-item" href="#">Ameublement</a>
-                    <a class="dropdown-item" href="#">Vêtements</a>
-                    <a class="dropdown-item" href="#">Sport et Loisirs</a>
-                </div>
-            </div>
+            <c:forEach var="article" items="${categorieAmeublement}">
+                <a class="dropdown-item" href="#">Ameublement ${article}</a>
+            </c:forEach>
+
+            <c:forEach var="article" items="${categorieVetements}">
+                <a class="dropdown-item" href="#">Vêtements ${article}</a>
+            </c:forEach>
+
+            <c:forEach var="article" items="${categorieSport}">
+                <a class="dropdown-item" href="#">Sport et Loisirs ${article}</a>
+            </c:forEach>
         </div>
     </div>
 </div>
@@ -47,84 +73,33 @@
 
     <div class="input-group w-25 ms-3">
         <input type="search" class="form-control rounded" id="Rechercher" name="Rechercher" placeholder="Rechercher" aria-label="Search" aria-describedby="search-addon" />
-        <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Rechercher</button>
+        <a href ="./">
+        	<button type="submit" class="btn btn-outline-primary" data-mdb-ripple-init>Rechercher</button>
+        </a>
     </div>
 </form>
 
-<div class="row mt-4">
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 1</h5>
-            <p class="card-text">Description article 1</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 1</small></p>
-        </div>
+<c:if test="${not empty listeArticles}">
+	<c:forEach var="article" items="${listeArticles}">
+	<c:set var="articleId" value="${article.noArticle}"></c:set>
+		<form action="./DetailEnchere" method="post"> 
+       	 <div class="row mt-4">
+         	<div class="col-md-4 mb-4">
+                	<div class="card">
+                   		<h5 class="card-title"><c:out value="${article.nomArticle}" /></h5>
+                    	<p class="card-text"><small class="text-muted"><c:out value="Mis en vente le : ${article.dateDebutEncheres}" /></small></p>
+                     	<p class="card-text"><small class="text-muted"><c:out value="État de la vente : " /></small></p>                   
+                     	<p class="card-text"><small class="text-muted"><c:out value="Prix :" /></small></p>                   
+                    	<input type="text" id="articleId" name="articleId" value="${article.noArticle}" /> <!-- Ajoutez l'ID de l'article comme paramètre caché -->
+                    	<button  type="submit">Afficher la vente</button>
+                	</div>
+				</div>
+        	</div>
+		</form>
+	</c:forEach>
+</c:if>
+    <div class="container text-center">
+        <!-- Le contenu du conteneur de la barre de navigation Bootstrap -->
     </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 2</h5>
-            <p class="card-text">Description article 2</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 2</small></p>
-        </div>
-    </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 3</h5>
-            <p class="card-text">Description article 3</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 3</small></p>
-        </div>
-    </div>
-</div>
-
-<div class="row mt-4">
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 4</h5>
-            <p class="card-text">Description article 4</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 4</small></p>
-        </div>
-    </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 5</h5>
-            <p class="card-text">Description article 5</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 5</small></p>
-        </div>
-    </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 6</h5>
-            <p class="card-text">Description article 6</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 6</small></p>
-        </div>
-    </div>
-</div>
-
-<div class="row mt-4">
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 7</h5>
-            <p class="card-text">Description article 7</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 7</small></p>
-        </div>
-    </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 8</h5>
-            <p class="card-text">Description article 8</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 8</small></p>
-        </div>
-    </div>
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <h5 class="card-title">Article 9</h5>
-            <p class="card-text">Description article 9</p>
-            <p class="card-text"><small class="text-muted">Vendu par: Vendeur 9</small></p>
-        </div>
-    </div>
-</div>
-
-<div class="container text-center">
-    <!-- Le contenu du conteneur de la barre de navigation Bootstrap -->
-</div>
-</body>
-</html>
+    </body>
+    </html>

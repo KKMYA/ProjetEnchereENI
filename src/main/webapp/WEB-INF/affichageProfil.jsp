@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +33,7 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5>
-                            John Doe
+                            ${utilisateur.prenom} ${utilisateur.nom}
                         </h5>
                         <p class="note vendeur">note vendeur: <span>8/10</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -46,8 +50,9 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/>
-                    <input type="submit" class="homepage-btn" name="homepage" value="Retour à l'accueil"/>
+                <a href="./ModificationProfil.jsp"><input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/></a>
+                    
+                 <a href=""><input type="submit" class="homepage-btn" name="homepage" value="Retour à l'accueil"/></a>   
                 </div>
             </div>
             <div class="row">
@@ -68,15 +73,23 @@
                                     <label>Pseudo</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>JohnD</p>
+                                    <p>${utilisateur.pseudo}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Nom/Prénom</label>
+                                    <label>Nom</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>John Doe</p>
+                                    <p>${utilisateur.nom}</p>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <label>Prenom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>${utilisateur.prenom}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -84,7 +97,7 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>JohnD@gmail.com</p>
+                                    <p>${utilisateur.email}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -92,7 +105,7 @@
                                     <label>Télephone</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>06.66.66.66.66</p>
+                                    <p>${utilisateur.telephone}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -100,7 +113,7 @@
                                     <label>Rue</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>15 rue des Nakamas</p>
+                                    <p>${utilisateur.rue}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -108,7 +121,7 @@
                                     <label>Code Postal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>77 777</p>
+                                    <p>${utilisateur.codePostal}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -116,10 +129,11 @@
                                     <label>Ville</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Grand-Line</p>
+                                    <p>${utilisateur.ville}</p>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="tab-pane fade" id="AVendre" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="card">
                                 <div class="col-md-6">
@@ -181,6 +195,7 @@
                         </div>
 
             </div>
+         
         </form>
     </div>
 

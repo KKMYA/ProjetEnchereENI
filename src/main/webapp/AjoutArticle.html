@@ -11,6 +11,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="container mt-5">
+    <script src="headerFooterManager.js"></script>
+
   <h2>Ajouter un article à vendre</h2>
     <!--Définition du formulaire d'ajout d'article -->
 
@@ -47,6 +49,9 @@
             Changer Photo
             <input type="file" name="fichier"/>
         </div>
+
+        <label for="dateAjout">Date d'ajout</label>
+        <input type="datetime-local" id="dateAjout" name="dateAjout" class="form-control"/>
     </div>
 
         <!--Bloc Adresse du retrait -->
@@ -62,8 +67,6 @@
 
           <label for="adresse">Adresse</label>
           <input type="text" id="adresse" name="adresse" class="form-control" />
-
-
 
       </div>
 
