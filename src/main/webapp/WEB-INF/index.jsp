@@ -36,34 +36,27 @@
 	  	</div>
 
 </c:if>
-        <div class="col-auto">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catégories
-                </button>
-                <div class="dropdown-menu" aria-labelledby="Catégories">
-                    <a class="dropdown-item" href="#">Informatique
-                    <c:forEach var="article" items="${categorieArticle = 1}">
-                        ${article}
-                    </c:forEach>
-                    </a>
+<div class="col-auto">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catégories
+        </button>
+        <div class="dropdown-menu" aria-labelledby="Catégories">
+            <c:forEach var="article" items="${categorieInformatique}">
+                <a class="dropdown-item" href="#">Informatique ${article}</a>
+            </c:forEach>
 
-                    <c:forEach var="article" items="${categorieArticle = 2}">
-                    <a class="dropdown-item" href="#">Ameublement</a>
-                        ${article}
-                    </c:forEach>
+            <c:forEach var="article" items="${categorieAmeublement}">
+                <a class="dropdown-item" href="#">Ameublement ${article}</a>
+            </c:forEach>
 
-                    <c:forEach var="article" items="${categorieArticle = 3}">
-                    <a class="dropdown-item" href="#">Vêtements</a>
-                        ${article}
-                    </c:forEach>
+            <c:forEach var="article" items="${categorieVetements}">
+                <a class="dropdown-item" href="#">Vêtements ${article}</a>
+            </c:forEach>
 
-                    <c:forEach var="article" items="${categorieArticle = 4}">
-                    <a class="dropdown-item" href="#">Sport et Loisirs</a>
-                        ${article}
-                    </c:forEach>
-                </div>
-            </div>
+            <c:forEach var="article" items="${categorieSport}">
+                <a class="dropdown-item" href="#">Sport et Loisirs ${article}</a>
+            </c:forEach>
         </div>
     </div>
 </div>
@@ -82,7 +75,7 @@
     </div>
 </form>
 
-<c:if test="${listeDeTousLesArticles!==null}">
+<c:if test="${listeDeTousLesArticles != null}">
     <c:forEach var="article" items="${listeDeTousLesArticle}">
 <div class="row mt-4">
     <div class="col-md-4 mb-4">
@@ -156,7 +149,7 @@
         </div>
     </div>--%>
         </c:forEach>
-
+</c:if>
     <div class="container text-center">
         <!-- Le contenu du conteneur de la barre de navigation Bootstrap -->
     </div>

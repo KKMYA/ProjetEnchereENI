@@ -36,6 +36,7 @@ public class ServletAjoutArticle extends HttpServlet {
 		String codePostalRetrait = request.getParameter("code_postal");
 		String villeRetrait = request.getParameter("villeRetrait");
 		
+		
 		int prixInitial = Integer.parseInt(request.getParameter("prix_initial_de_vente"));
 		
 		ArticleEnVente article = new ArticleEnVente();
@@ -52,7 +53,6 @@ public class ServletAjoutArticle extends HttpServlet {
 			article.setMiseAPrix(prixInitial);
 			article.setNomArticle(nomArticle);
 			article.setDescription(description);
-			System.out.println(noUtilisateur);
 			article.setNoUtilisateur(noUtilisateur);
 						
 			retrait.setRue(rueRetrait);
