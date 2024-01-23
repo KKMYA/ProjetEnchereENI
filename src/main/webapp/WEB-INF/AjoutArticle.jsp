@@ -13,6 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="container mt-5">
+
     <%@include file="Test.html" %>
   <h2>Ajouter un article à vendre</h2>
   
@@ -21,7 +22,7 @@
   <form method="post" action="./AjoutArticle">
     <div class="form-group">
       <label for="nom_article">Nom de l'article :</label>
-      <input type="text" class="form-control" id="nomArticle" name="nom_article" placeholder="Entrez le nom de l'article" required>
+      <input type="text" class="form-control" id="nom_article" name="nom_article" placeholder="Entrez le nom de l'article" required>
     </div>
     <div class="form-group">
       <label for="description">Description :</label>
@@ -81,7 +82,6 @@
 </div>
 
 
-
-
 </body>
 </html>
+
