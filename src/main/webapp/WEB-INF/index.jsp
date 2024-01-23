@@ -90,7 +90,7 @@
                     	<p class="card-text"><small class="text-muted"><c:out value="Mis en vente le : ${article.dateDebutEncheres}" /></small></p>
                      	<p class="card-text"><small class="text-muted"><c:out value="État de la vente : " /></small></p>                   
                      	<p class="card-text"><small class="text-muted"><c:out value="Prix :" /></small></p>                   
-                    	<input type="text" id="articleId" name="articleId" value="${article.noArticle}" /> <!-- Ajoutez l'ID de l'article comme paramètre caché -->
+                    	<input type="hidden" id="articleId" name="articleId" value="${article.noArticle}" /> <!-- Ajoutez l'ID de l'article comme paramètre caché -->
                     	<button  type="submit">Afficher la vente</button>
                 	</div>
 				</div>
