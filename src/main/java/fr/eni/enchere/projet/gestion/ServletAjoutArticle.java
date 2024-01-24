@@ -85,7 +85,7 @@ public class ServletAjoutArticle extends HttpServlet {
 			retrait.setNoArticle(noArticle);
 			
 			retraitDAO.ajouterRetrait(retrait);
-					
+					System.out.println(retrait);
 			response.sendRedirect(request.getContextPath() + "/");
 			
 	        
