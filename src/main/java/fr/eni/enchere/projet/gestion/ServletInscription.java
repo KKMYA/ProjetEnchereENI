@@ -44,7 +44,7 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("mot_de_passe");
 		String confirmationMotDePasse = request.getParameter("confirmation");
-		
+	
 		if (motDePasse.equals(confirmationMotDePasse)) {
 			utilisateur.setPseudo(pseudo);
 			utilisateur.setNom(nom);
@@ -56,12 +56,16 @@ public class ServletInscription extends HttpServlet {
 			utilisateur.setVille(ville);
 			utilisateur.setMotDePasse(motDePasse);
 			utilisateurDao.insert(utilisateur);
-			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);;
+			int noUtilisateur = utilisateur.getNoUtilisateur();
+			HttpSession session =request.getSession(false);
+			session.setAttribute("noUtilisateur", noUtilisateur);
+			session.setMaxInactiveInterval(300);
+			response.sendRedirect(request.getContextPath() + "/");
 			System.out.println("insertion réussie");
 		}
 		else {
 			System.out.println("erreur lors de l'insertion");
-			doGet(request, response);
+			
 		}	
 		
 		

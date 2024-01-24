@@ -31,16 +31,11 @@ public class ServletSupressionCompte extends HttpServlet {
 		HttpSession session = request.getSession(false); // Récupérer la session sans en créer une nouvelle
 		if (session != null && session.getAttribute("noUtilisateur") != null) {
 			int idSession = Integer.parseInt(session.getAttribute("noUtilisateur").toString());	
-			
-			ArticleManager.RecupererNoArticleDeLaListe(ArticleManager.selectionArticleParUtilisateur(idSession));
-			//List<ArticleEnVente>listeArticle = ArticleManager.selectionArticleParUtilisateur(idSession);
-			
-				
-			
-			ArticleManager.supressionArticleParUtilisateur(idSession);
+			System.out.println(idSession);
 			UserManager.supprimerUtilisateur(idSession);
-			
-		doGet(request, response);
+			session.invalidate();
+			response.sendRedirect(request.getContextPath() + "/");
+
 	}
 	}
 }

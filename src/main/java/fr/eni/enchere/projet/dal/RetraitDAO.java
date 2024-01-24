@@ -9,8 +9,10 @@ public interface RetraitDAO {
 	
 	public void modifierRetrait(Retrait retrait, ArticleEnVente article);
 	
-	public void deleteRetrait(ArticleEnVente article);
+	//public void deleteRetrait(ArticleEnVente article);
 	
 	public Retrait afficherRetrait(ArticleEnVente article);
+
+	void deleteRetrait(int noArticle);
 	
 }
