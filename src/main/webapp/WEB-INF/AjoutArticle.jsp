@@ -20,7 +20,7 @@
   
   
     <!--Définition du formulaire d'ajout d'article -->
-  <form method="post" action="./AjoutArticle">
+  <form method="post" action="./AjoutArticle" enctype="multipart/form-data">
     <div class="form-group">
       <label for="nom_article">Nom de l'article :</label>
       <input type="text" class="form-control" id="nom_article" name="nom_article" placeholder="Entrez le nom de l'article" required>
@@ -54,11 +54,12 @@
     </div>
 
     <div class="form-group">
-      <label for="photo">URL de la photo :</label>
+  <%--    <label for="photo">URL de la photo :</label>
       <input type="url" class="form-control" id="photo" name="photo" placeholder="Entrez l'URL de la photo de l'article">
         <div class="fichier btn btn-primary">
-            Changer Photo
-            <input type="file" name="fichier"/>
+   --%>     
+            Ajouter Photo
+            <input type="file" name="image" accept="image/png, image/*"/>
         </div>
     </div>
     
