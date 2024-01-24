@@ -13,7 +13,7 @@
         <h1>Mon profil</h1>
 
         
-        <form action="/stockage-comptes" method="post"> <!-- car présence de mdp-->
+         <!-- car présence de mdp-->
 
                 <label for="pseudo">Pseudo: </label>
                 <input type="text"
@@ -119,9 +119,12 @@
                 <p>Crédit: ${utilisateur.credit }</p>
 
                 <input type="submit" value="Enregistrer">
-                <input type="button" value="Supprimer mon compte">
-
-        </form>
+                <form action="./suppressionProfil" method="post">
+                <button>
+                <input type="submit" value="Supprimer mon compte">
+                </button>
+                </form>
+       
 
     </body>
 

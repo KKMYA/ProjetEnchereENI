@@ -20,4 +20,6 @@ public interface ArticleEnVenteDAO {
 	
 	public List<ArticleEnVente> afficherArticleEnVente();
 
+	public void supprimerArticleParUtilisateur(int noUtilisateur);
+
 }

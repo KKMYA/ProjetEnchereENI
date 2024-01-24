@@ -36,9 +36,7 @@ public class ServletConnexion extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
@@ -55,7 +53,7 @@ public class ServletConnexion extends HttpServlet {
 			session.setAttribute("noUtilisateur", noUtilisateur);
 			session.setMaxInactiveInterval(300);
 
-			request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
+	        response.sendRedirect(request.getContextPath() + "/");
 		}
 		else {
 			
