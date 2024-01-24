@@ -45,7 +45,6 @@ public class ServletAjoutArticle extends HttpServlet {
 		
 		
 	    HttpSession session = request.getSession(false); // Récupérer la session sans en créer une nouvelle
-	    
 	    if (session != null && session.getAttribute("noUtilisateur") != null) {
 	    	int noUtilisateur = Integer.parseInt(session.getAttribute("noUtilisateur").toString());
 	        session.getAttribute("noUtilisateur");

@@ -26,6 +26,7 @@ import jakarta.servlet.http.HttpSession;
 			if (session != null && session.getAttribute("noUtilisateur") != null) {
 				int idSession = Integer.parseInt(session.getAttribute("noUtilisateur").toString());		
 				Utilisateur utilisateur =	UserManager.identificationPseudo(idSession);
+				System.out.println(utilisateur);
 				request.setAttribute("utilisateur", utilisateur);
 				List<ArticleEnVente>listeArticle = articledao.afficherArticleSelonIdVendeur(idSession);
 				request.setAttribute("listeArticles", listeArticle);

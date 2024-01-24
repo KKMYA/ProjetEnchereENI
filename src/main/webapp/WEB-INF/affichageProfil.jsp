@@ -103,7 +103,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Télephone</label>
+                                    <label>Téléphone</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>${utilisateur.telephone}</p>
@@ -156,7 +156,11 @@
         
     </div>
 </div>
-
+<c:if test="${utilisateur.administrateur == true}">
+	<form action="./panelAdmin" method="get">
+  		<button id="lienPanelAdmin" name="lienPanelAdmin" value="${utilisateur.noUtilisateur}">PANEL ADMIN</button>
+   </form>
+</c:if>
 
 
 </body>
