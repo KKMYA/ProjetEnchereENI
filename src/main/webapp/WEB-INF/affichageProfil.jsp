@@ -19,7 +19,7 @@
 <div class="Infos Profil">
     <h3> Mon profil</h3>
     <div class="container ">
-        <form method="post">
+      
             <div class="row">
                 <div class="col-md-4">
                     <div class="photo-profil">
@@ -33,7 +33,7 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5>
-                            John Doe
+                            ${utilisateur.prenom} ${utilisateur.nom}
                         </h5>
                         <p class="note vendeur">note vendeur: <span>8/10</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -50,8 +50,10 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/>
-                    <input type="submit" class="homepage-btn" name="homepage" value="Retour à l'accueil"/>
+                <a href="./modificationProfil"><input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/></a>
+               	<button>
+                 <a href="${pageContext.request.contextPath}/">Retour à l'accueil</a>  
+                </button>
                 </div>
             </div>
             <div class="row">
@@ -72,15 +74,23 @@
                                     <label>Pseudo</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>JohnD</p>
+                                    <p>${utilisateur.pseudo}</p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Nom/Prénom</label>
+                                    <label>Nom</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>John Doe</p>
+                                    <p>${utilisateur.nom}</p>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <label>Prenom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>${utilisateur.prenom}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -88,7 +98,7 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>JohnD@gmail.com</p>
+                                    <p>${utilisateur.email}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -96,7 +106,7 @@
                                     <label>Télephone</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>06.66.66.66.66</p>
+                                    <p>${utilisateur.telephone}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -104,7 +114,7 @@
                                     <label>Rue</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>15 rue des Nakamas</p>
+                                    <p>${utilisateur.rue}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -112,7 +122,7 @@
                                     <label>Code Postal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>77 777</p>
+                                    <p>${utilisateur.codePostal}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -120,76 +130,31 @@
                                     <label>Ville</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Grand-Line</p>
+                                    <p>${utilisateur.ville}</p>
                                 </div>
                             </div>
                         </div>
+    <c:if test="${not empty listeArticles}">
+    <c:forEach var="article" items="${listeArticles}">
                         <div class="tab-pane fade" id="AVendre" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="card">
                                 <div class="col-md-6">
                                     <div class="row mt-4">
                                         <div class="col-md-4 mb-4">
                                             <div class="card">
-                                                <h5 class="card-title">Article 1</h5>
-                                                <p class="card-text">Description article 1</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 1</small></p>
+                                                <h5 class="card-title">${article.nomArticle}</h5>
+                                                <p class="card-text">${article.description}</p>
+                                                <p class="card-text"><small class="text-muted">Vendu par: ${utilisateur.pseudo}</small></p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 2</h5>
-                                                <p class="card-text">Description article 2</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 2</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 3</h5>
-                                                <p class="card-text">Description article 3</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 3</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="Vendus" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="card">
-                                <div class="col-md-6">
-                                    <div class="row mt-4">
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 4</h5>
-                                                <p class="card-text">Description article 4</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 4</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 5</h5>
-                                                <p class="card-text">Description article 5</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 5</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-4">
-                                            <div class="card">
-                                                <h5 class="card-title">Article 6</h5>
-                                                <p class="card-text">Description article 6</p>
-                                                <p class="card-text"><small class="text-muted">Vendu par: Vendeur 6</small></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-            </div>
-        </form>
+            						</div> 
+         						</div>
+         					</div>	
+         				</div>
+     </c:forEach>
+     </c:if>    				
+        
     </div>
-
-
-
 </div>
 
 

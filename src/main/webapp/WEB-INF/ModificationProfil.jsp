@@ -13,10 +13,8 @@
         <h1>Mon profil</h1>
 
         
-        <form action="/stockage-comptes" method="post"> <!-- car présence de mdp-->
+         <!-- car présence de mdp-->
 
-            <!--Plus de Fieldset (visible) avec l'ajout du bootstrap-->
-            <fieldset>
                 <label for="pseudo">Pseudo: </label>
                 <input type="text"
                 id="pseudo" 
@@ -118,13 +116,15 @@
                 placeholder="confirmation"
                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}[A-Z a-z\W]{8,}"><br><br><br>
 
-                <p>Crédit: </p>
+                <p>Crédit: ${utilisateur.credit }</p>
 
                 <input type="submit" value="Enregistrer">
-                <input type="button" value="Supprimer mon compte">
-            </fieldset>
-
-        </form>
+                <form action="./suppressionProfil" method="post">
+                <button>
+                <input type="submit" value="Supprimer mon compte">
+                </button>
+                </form>
+       
 
     </body>
 

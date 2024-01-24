@@ -5,6 +5,7 @@ import java.io.IOException;
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
 import fr.eni.enchere.projet.bo.ArticleEnVente;
 import fr.eni.enchere.projet.bo.Retrait;
+import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.DAOFactory;
 import fr.eni.enchere.projet.dal.RetraitDAO;
 import jakarta.servlet.ServletException;
@@ -67,9 +68,9 @@ public class ServletAjoutArticle extends HttpServlet {
 			
 	        
 	    } else {
-	        // Gérer le cas où la session n'existe pas ou ne contient pas l'ID
-	    }
 
+	    }
+	    
 	}
 
 }

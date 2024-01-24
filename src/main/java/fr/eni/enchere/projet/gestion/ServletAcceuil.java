@@ -25,6 +25,9 @@ public class ServletAcceuil extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
+
+
 		
 		if(request.getAttribute("Rechercher") != null){
 			String recherche = request.getAttribute("Rechercher").toString();
@@ -34,7 +37,6 @@ public class ServletAcceuil extends HttpServlet {
 
 			
 		}else {
-		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
 		request.setAttribute("listeArticles", listeDeTousLesArticles);
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		}
@@ -44,5 +46,5 @@ public class ServletAcceuil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
+	
 }

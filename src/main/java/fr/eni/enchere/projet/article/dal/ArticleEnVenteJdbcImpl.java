@@ -17,12 +17,13 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 
 	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente,"
 			+ "no_utilisateur, no_categorie) VALUES(?,?,?,?,?,?,?,?)";
-	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES_VENDUS WHERE no_artlcle=?";
+	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES_VENDUS WHERE no_article=?";
 	private static final String UPDATE_ARTICLE_NOM_ARTICLE = "UPDATE ARTICLES_VENDUS SET nom_article = ? WHERE no_article = ?";
 	private static final String UPDATE_ARTICLE_DESCRIPTION = "UPDATE ARTICLES_VENDUS SET description = ? WHERE no_article = ?";
 	private static final String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?";
-	private static final String SELECT_BY_ID_VENDEUR = "SELECT * FROM ARTICLE_VENDUS WHERE no_utilisateur = ?";
+	private static final String SELECT_BY_ID_VENDEUR = "SELECT * FROM ARTICLES_VENDUS WHERE no_utilisateur = ?";
 	private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS";
+	private static final String DELETE_ARTICLE_BY_UTILISATEUR = "DELETE FROM ARTICLES_VENDUS WHERE no_utilisateur=?";
 
 	
 	@Override
@@ -65,6 +66,18 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 			PreparedStatement stmt = con.prepareStatement(DELETE_ARTICLE);)
 			{
 			stmt.setInt(1, noArticle);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	} 
+	@Override
+	public void supprimerArticleParUtilisateur(int noUtilisateur) {
+		
+		try(Connection con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(DELETE_ARTICLE_BY_UTILISATEUR);)
+			{
+			stmt.setInt(1, noUtilisateur);
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

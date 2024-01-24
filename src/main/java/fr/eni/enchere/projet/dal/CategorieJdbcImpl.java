@@ -25,7 +25,7 @@ public class CategorieJdbcImpl implements CategorieDAO{
 		
 		int key = -1;
 		
-		try(Connection con = ConnectionProvider.getConnection();			
+		try(Connection con = ConnectionProvider.getConnection();					
 		PreparedStatement stmt = con.prepareStatement(INSERT_CATEGORIE, Statement.RETURN_GENERATED_KEYS);)
 		{
 			stmt.setString(1, "libelle");
