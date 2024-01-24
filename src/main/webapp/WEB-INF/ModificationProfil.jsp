@@ -86,9 +86,7 @@
                 <input type="text"
                 id="ville" 
                 name="ville" 
-                
                 placeholder="${utilisateur.ville}"
-                pattern="[A-Z a-z]{3,}"
                 title=""><br>
 
                 <p>Crédit: ${utilisateur.credit }</p>

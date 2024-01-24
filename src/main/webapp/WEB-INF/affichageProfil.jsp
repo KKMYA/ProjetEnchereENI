@@ -53,9 +53,10 @@
                 <form action="./modificationProfil" method="get">
                 	<input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/>
                 </form>	
-               	<button>
-                 <a href="${pageContext.request.contextPath}/">Retour à l'accueil</a>  
-                </button>
+                 <a href="${pageContext.request.contextPath}/">
+                 <input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Retour à l'accueil"/>
+                 </a>  
+                
                 </div>
             </div>
             <div class="row">
