@@ -10,7 +10,7 @@
         <body>
         	<!-- Page Enchérir -->
             <h1>Détail vente</h1>
-            <!-- Page enchere finie -->
+            <!-- Page enchere finie A voir avec la Servlet-->
             <h1>${ } a remporté l'enchère</h1>
             <!-- Page vente remportée -->
             <h1>Vous avez remporté la vente</h1>
@@ -23,19 +23,19 @@
             <p>Description: ${ArticleEnVente.description} </p>
 
             <!--Catégorie affilié lors de la création de la vente-->
-            <p>Catégorie: ${ArticleEnVente.noCategorie}</p>
+            <p>Catégorie: ${CategorieArticle.libelle}</p>
 
             <!--Meilleure offre en temps réel-->
-            <p>Meilleure offre:</p> 
+            <p>Meilleure offre: ${ArticleEnVente.prixVente}</p> 
 
             <p>Mise à prix: ${ArticleEnVente.miseAPrix} </p>
 
             <p>Fin de l'enchère: ${ArticleEnVente.dateFinEncheres }</p>
 			
-			<!-- A faire avec une Servlet -->
-            <p>Retrait: </p>
-
-            <p>Vendeur: ${ArticlEenVente.NoUtilisateur.Pseudo}</p>
+            <p>Retrait: ${LieuDeRetrait.rue} ${LieuDeRetrait.codePostal} ${LieuDeRetrait.ville }</p>
+            
+			<!-- Récupéré grace à Servlet Fiche Enchère -->
+            <p>Vendeur: ${PseudoUtilisateur.pseudo}</p>
 
 			<!-- Page enchère -->
             <form method="post">
@@ -44,10 +44,10 @@
                 <input type="submit" value="Enchérir">
             </form>
             <!-- Page enchère finie -->
-            <button value="Retour"></button>
+            <button>Retour</button>
             
            	<!-- Page vente remportée -->
-           	<button value="Retrait effectué"></button>
+           	<button> Retrait effectué</button>
 
         </body>
         <footer>
