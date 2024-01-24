@@ -12,8 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 
 public class RecuperationMDP extends HttpServlet {
 
-
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	public static boolean CheckMail(String email) {
 
