@@ -50,10 +50,13 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                <a href="./modificationProfil"><input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/></a>
-               	<button>
-                 <a href="${pageContext.request.contextPath}/">Retour à l'accueil</a>  
-                </button>
+                <form action="./modificationProfil" method="get">
+                	<input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/>
+                </form>	
+                 <a href="${pageContext.request.contextPath}/">
+                 <input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Retour à l'accueil"/>
+                 </a>  
+                
                 </div>
             </div>
             <div class="row">

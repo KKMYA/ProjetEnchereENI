@@ -63,7 +63,7 @@ public class ServletAjoutArticle extends HttpServlet {
 			
 			retraitDAO.ajouterRetrait(retrait);
 					
-			response.sendRedirect("/WEB-INF/index.jsp");
+			response.sendRedirect(request.getContextPath() + "/");
 			
 	        
 	    } else {
