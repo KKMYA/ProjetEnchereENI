@@ -1,5 +1,7 @@
 package fr.eni.enchere.projet.bo;
 
+import fr.eni.enchere.projet.bll.RecuperationMDP;
+
 import java.util.Random;
 
 public class Utilisateur {
@@ -8,23 +10,23 @@ public class Utilisateur {
 	private String pseudo;
 	private String nom;
 	private String prenom;
-	private String email;
+	private static String email;
 	private String telephone;
 	private String rue;
 	private String codePostal;
 	private String ville;
 	private String motDePasse;
-	private Integer credit=0;
-	private int randomKey;
-	private boolean administrateur=false;
-	
-	
+	private Integer credit = 0;
+	private static Integer randomKey;
+	private boolean administrateur = false;
+
+
 	public Utilisateur() {
-		
+
 	}
 
 	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
-					   String rue, String codePostal, String ville, String motDePasse, Integer credit, int randomKey, boolean administrateur) {
+					   String rue, String codePostal, String ville, String motDePasse, Integer credit, Integer randomKey, boolean administrateur) {
 		super();
 		this.noUtilisateur = noUtilisateur;
 		this.pseudo = pseudo;
@@ -40,13 +42,12 @@ public class Utilisateur {
 		this.randomKey = randomKey;
 		this.administrateur = administrateur;
 	}
-	
+
 	public int utilisateurEstAdmin(Utilisateur utilisateur) {
-		if(utilisateur.isAdministrateur()==true) {
+		if (utilisateur.isAdministrateur() == true) {
 			return 1;
-		}
-		else return 0;
-		
+		} else return 0;
+
 	}
 
 	public int getNoUtilisateur() {
@@ -150,17 +151,23 @@ public class Utilisateur {
 		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
 				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + "]";
+				+ ", administrateur=" + administrateur + ", randomKey=" + randomKey + "]";
 	}
 
 
-	public int getRandomKey() {
+	public Integer getRandomKey() {
 		return randomKey;
 	}
 
-	public static int setRandomKey() {
-		Random random = new Random();
-		int randomKey = random.nextInt(1000, 9999);
-		return randomKey;
+	public static Integer generateRandomKey(String email) {
+		Integer randomKey;
+		if (RecuperationMDP.CheckMail(email)) {
+			Random random = new Random();
+			randomKey = random.nextInt(1000, 9999);
+			return randomKey;
+
+		} else {
+			return null;
+		}
 	}
 }
