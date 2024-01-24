@@ -12,29 +12,34 @@ import fr.eni.enchere.projet.dal.ConnectionProvider;
 
 public class SearchBar {
 
-	private static String QUERY_RECHERCHE = "SELECT * FROM ARTICLES_VENDUS WHERE nomArticle LIKE ?";
+	private static String QUERY_RECHERCHE = "SELECT * FROM ARTICLES_VENDUS WHERE nom_article LIKE ?";
 	
 	
 	public static List<ArticleEnVente> afficherArticlesRecherches(String recherche){
 		List<ArticleEnVente> listeArticlesRecherches = new ArrayList<>();
-		
+		System.out.println(recherche);
 		try(Connection con = ConnectionProvider.getConnection();	
 				
 				PreparedStatement stmt = con.prepareStatement(QUERY_RECHERCHE))
 			{
-				stmt.setString(1, recherche);
+				String search = "%";
+				search += recherche;
+				search += "%";
+				stmt.setString(1, search);
 				ResultSet rs = stmt.executeQuery();
+				
 				while(rs.next()) {
 					ArticleEnVente article = new ArticleEnVente();
 					
-					article.setNomArticle(rs.getString(1));
-					article.setDescription(rs.getString(2));
-					article.setDateDebutEncheres(rs.getDate(3).toLocalDate());
-					article.setDateFinEncheres(rs.getDate(4).toLocalDate());
-					article.setMiseAPrix(rs.getInt(5));
-					article.setPrixVente(rs.getInt(6));
-					article.setNoUtilisateur(rs.getInt(7));
-					article.setNoCategorie(rs.getInt(8));
+					article.setNomArticle(rs.getString("nom_article"));
+					article.setDescription(rs.getString("description"));
+					article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
+					article.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
+					
+					article.setMiseAPrix(rs.getInt("prix_initial"));
+					article.setPrixVente(rs.getInt("prix_vente"));
+					article.setNoUtilisateur(rs.getInt("no_utilisateur"));
+					article.setNoCategorie(rs.getInt("no_categorie"));
 					
 					
 					listeArticlesRecherches.add(article);
@@ -44,7 +49,6 @@ public class SearchBar {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		
 		
 		
 		return listeArticlesRecherches;

@@ -40,29 +40,20 @@
 	  	</div>
 
 </c:if>
+
 <div class="col-auto">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catégories
-        </button>
-        <div class="dropdown-menu" aria-labelledby="Catégories">
-            <c:forEach var="article" items="${categorieInformatique}">
-                <a class="dropdown-item" href="#">Informatique ${article}</a>
-            </c:forEach>
-
-            <c:forEach var="article" items="${categorieAmeublement}">
-                <a class="dropdown-item" href="#">Ameublement ${article}</a>
-            </c:forEach>
-
-            <c:forEach var="article" items="${categorieVetements}">
-                <a class="dropdown-item" href="#">Vêtements ${article}</a>
-            </c:forEach>
-
-            <c:forEach var="article" items="${categorieSport}">
-                <a class="dropdown-item" href="#">Sport et Loisirs ${article}</a>
-            </c:forEach>
+    <form id="categorieForm" action="./" method="get">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Catégories
+            </button>
+            <div class="dropdown-menu" aria-labelledby="Catégories">
+                <c:forEach var="categorie" items="${listeDeCategories}">
+                    <a class="dropdown-item" href="#" onclick="selectCategory('${categorie.libelle}');">${categorie.libelle}</a>
+                </c:forEach>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <form class="text-center justify-content-center d-flex align-items-center mt-4">
