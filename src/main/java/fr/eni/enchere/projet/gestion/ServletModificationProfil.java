@@ -64,19 +64,70 @@ public class ServletModificationProfil extends HttpServlet {
 		    if (session != null && session.getAttribute("noUtilisateur") != null && inputPseudo) {
 		        int noUtilisateur = SessionID.noUtilisateurSession(request);
 
-		        String newPseudo = request.getParameter("pseudo");
 		        Utilisateur utilisateur = new Utilisateur();
 		        utilisateur.setNoUtilisateur(noUtilisateur);
 		        System.out.println(noUtilisateur);
-		        utilisateur.setPseudo(newPseudo);
-		        System.out.println(newPseudo);
+		        utilisateur.setPseudo(pseudoParam);
+		        System.out.println(pseudoParam);
 		        utilisateurdao.updatePseudo(utilisateur);
-
-		        
-
+		    }
+		    if (session != null && session.getAttribute("noUtilisateur") != null && inputNom) {
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setNom(nomParam);
+		    	utilisateurdao.updateNom(utilisateur);
+		    }
+		    if (session!=null && session.getAttribute("noUtilisateur") != null && inputPrenom ) {
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setPrenom(prenomParam);
+		    	utilisateurdao.updatePrenom(utilisateur);
+		    }
+		    if(session != null && session.getAttribute("noUtilisateur") != null && inputEmail){
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setEmail(emailParam);
+		    	utilisateurdao.updateEmail(utilisateur);
+		    }
+		    if(session != null && session.getAttribute("noUtilisateur") != null && inputTelephone) {
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setTelephone(telephoneParam);
+		    	utilisateurdao.updateTelephone(utilisateur);
+		    }
+		    if (session != null && session.getAttribute("noUtilisateur") != null && inputRue) {
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setRue(rueParam);
+		    	utilisateurdao.updateRue(utilisateur);
+		    }
+		    if (session != null && session.getAttribute("noUtilisateur") != null && inputCodePostal) {
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setCodePostal(codePostalParam);
+		    	utilisateurdao.updateCodePostal(utilisateur);
+		    }
+		    if (session != null && session.getAttribute("noUtilisateur") != null && inputVille) {
+		    	int noUtilisateur = SessionID.noUtilisateurSession(request);
+		    	
+		    	Utilisateur utilisateur = new Utilisateur();
+		    	utilisateur.setNoUtilisateur(noUtilisateur);
+		    	utilisateur.setVille(villeParam);
+		    	utilisateurdao.updateVille(utilisateur);
+		    }
 		        doGet(request, response);
-		  
 		}
 
 	}
-}
+
