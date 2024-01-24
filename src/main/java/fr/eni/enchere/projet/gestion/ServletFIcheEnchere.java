@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
 import fr.eni.enchere.projet.bo.ArticleEnVente;
+import fr.eni.enchere.projet.bo.Categorie;
 import fr.eni.enchere.projet.bo.Retrait;
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.CategorieDAO;
@@ -43,18 +44,14 @@ public class ServletFIcheEnchere extends HttpServlet {
 		try {
 			utilisateurDemande = utilisateurDAO.select(articleDemande.getNoUtilisateur());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		request.setAttribute("PseudoUtilisateur", utilisateurDemande);
 		
-		//Categorie categorieDemande = categorieDAO.getNomCategorie(articleDemande.getNoCategorie());
-		//request.setAttribute("CategorieArticle", categorieDemande);
-
-		
+		String categorieDemande = categorieDAO.getNomCategorie(articleDemande.getNoCategorie());
+		request.setAttribute("CategorieArticle", categorieDemande);
 
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

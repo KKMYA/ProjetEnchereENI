@@ -15,4 +15,6 @@ public interface CategorieDAO {
 	public void modifierCategorie(Categorie categorie, int noCategorie);
 	
 	public List<Categorie> afficherCategories();
+
+	public String getNomCategorie(int noCategorie);
 }

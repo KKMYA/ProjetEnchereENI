@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
     <html>
         <head>
@@ -11,7 +12,7 @@
         	<!-- Page Enchérir -->
             <h1>Détail vente</h1>
             <!-- Page enchere finie A voir avec la Servlet-->
-            <h1>${ } a remporté l'enchère</h1>
+            <h1> a remporté l'enchère</h1>
             <!-- Page vente remportée -->
             <h1>Vous avez remporté la vente</h1>
             
