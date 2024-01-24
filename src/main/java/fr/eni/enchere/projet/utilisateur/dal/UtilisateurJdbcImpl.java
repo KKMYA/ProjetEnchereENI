@@ -64,7 +64,6 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getPseudo());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -118,8 +117,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getTelephone());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+						e.printStackTrace();
 		}
 		
 	}
@@ -132,8 +130,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getRue());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+						e.printStackTrace();
 		}
 		
 	}
@@ -146,7 +143,6 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getCodePostal());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -174,7 +170,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getMotDePasse());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -198,20 +194,23 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setInt(1, no_utilisateur);
 			ResultSet rs = stmt.executeQuery();
 			rs.next();
-			Utilisateur utilisateur = new Utilisateur();
-					utilisateur.setNoUtilisateur(no_utilisateur);
-					utilisateur.setPseudo(rs.getString("pseudo"));
-					utilisateur.setNom(rs.getString("nom"));
-					utilisateur.setPrenom(rs.getString("prenom"));
-					utilisateur.setEmail(rs.getString("email"));
-					utilisateur.setTelephone(rs.getString("telephone"));
-					utilisateur.setRue(rs.getString("rue"));
-					utilisateur.setCodePostal(rs.getString("code_postal"));
-					utilisateur.setVille(rs.getString("ville"));
-					utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
-					utilisateur.setCredit(rs.getInt("credit"));
-					utilisateur.setAdministrateur(rs.getBoolean("administrateur"));
-					
+
+			Utilisateur utilisateur = new Utilisateur(
+					no_utilisateur,
+					rs.getString("pseudo"),
+					rs.getString("nom"),
+					rs.getString("prenom"),
+					rs.getString("email"),
+					rs.getString("telephone"),
+					rs.getString("rue"),
+					rs.getString("code_postal"),
+					rs.getString("ville"),
+					rs.getString("mot_de_passe"),
+					rs.getInt("credit"),
+          rs.getInt("randomKey"),
+					rs.getBoolean("administrateur")
+					);
+
 			return utilisateur;
 		
 		} catch (SQLException e) {
@@ -220,4 +219,5 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		}
 		return null;
 	}
+
 }

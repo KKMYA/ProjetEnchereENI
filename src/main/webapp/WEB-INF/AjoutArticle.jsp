@@ -48,7 +48,11 @@
     <div class="form-group">
       <label for="prix">Prix en points:</label>
       <input type="number" class="form-control" id="prix" name="prix_initial_de_vente" placeholder="Entrez le prix du produit" required>
+
+        <label for="dateAjout">Date d'ajout</label>
+        <input type="datetime-local" id="dateAjout" name="dateAjout" class="form-control"/>
     </div>
+
     <div class="form-group">
       <label for="photo">URL de la photo :</label>
       <input type="url" class="form-control" id="photo" name="photo" placeholder="Entrez l'URL de la photo de l'article">
@@ -59,7 +63,7 @@
     </div>
     
             <!--Bloc Adresse du retrait -->
-    </div>
+
       <div class="form-group">
           <label for="ville">Ville</label>
           <input type="text" id="ville" name="villeRetrait" class="form-control" >

@@ -26,7 +26,7 @@ public class ServletAcceuil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
-		System.out.println(listeDeTousLesArticles);
+
 
 		
 		if(request.getAttribute("Rechercher") != null){
