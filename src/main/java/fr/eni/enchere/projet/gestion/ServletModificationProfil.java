@@ -6,12 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.sql.SQLException;
-
 import fr.eni.enchere.projet.bll.SessionID;
-import fr.eni.enchere.projet.bll.UserManager;
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.DAOFactory;
 import fr.eni.enchere.projet.utilisateur.dal.UtilisateurDAO;

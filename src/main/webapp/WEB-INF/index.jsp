@@ -32,6 +32,11 @@
 	                    Mon profil
 	                </button>
 	            </a>
+	            <a href=".//AjoutArticle" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Connexion">
+	                    Vendre Un Article
+	                </button>
+	            </a>
 	            <a href="./deconnexion" class="text-decoration-none">
 	                <button class="btn btn-light" type="button" id="Deconnexion">
 	                    Se déconnecter
