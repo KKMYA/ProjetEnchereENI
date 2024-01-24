@@ -22,4 +22,5 @@ public interface ArticleEnVenteDAO {
 
 	public void supprimerArticleParUtilisateur(int noUtilisateur);
 
+
 }

@@ -51,11 +51,11 @@ public class RetraitJdbcImpl implements RetraitDAO {
 	}
 	
 	@Override
-	public void deleteRetrait(ArticleEnVente article) {
+	public void deleteRetrait(int noArticle) {
 		try(Connection con = ConnectionProvider.getConnection();
 				PreparedStatement stmt = con.prepareStatement(DELETE_RETRAIT);) 
 				{
-				stmt.setInt(1, article.getNoArticle());
+				stmt.setInt(1, noArticle);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();

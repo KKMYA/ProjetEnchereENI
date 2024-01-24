@@ -1,22 +1,21 @@
 package fr.eni.enchere.projet.bll;
 
-import fr.eni.enchere.projet.bo.Utilisateur;
-import fr.eni.enchere.projet.dal.ConnectionProvider;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
+import fr.eni.enchere.projet.bo.Utilisateur;
+import fr.eni.enchere.projet.dal.ConnectionProvider;
+import jakarta.servlet.http.HttpServlet;
+
 public class RecuperationMDP extends HttpServlet {
 
 
-    public static boolean CheckMail(String email) {
+    private static final long serialVersionUID = 1L;
+
+	public static boolean CheckMail(String email) {
 
         boolean check = false;
 
