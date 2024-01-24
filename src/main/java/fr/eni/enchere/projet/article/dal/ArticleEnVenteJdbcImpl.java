@@ -182,7 +182,8 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 				
 				while(rs.next()) {
 					ArticleEnVente article = new ArticleEnVente();
-					
+					article.setNoUtilisateur(rs.getInt("no_utilisateur"));
+					article.setNoArticle(rs.getInt("no_article"));
 					article.setNomArticle(rs.getString("nom_article"));
 					article.setDescription(rs.getString("description"));
 					article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
