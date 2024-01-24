@@ -19,7 +19,7 @@
 <div class="Infos Profil">
     <h3> Mon profil</h3>
     <div class="container ">
-        <form method="post">
+      
             <div class="row">
                 <div class="col-md-4">
                     <div class="photo-profil">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                <a href="./ModificationProfil.jsp"><input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/></a>
+                <a href="./modificationProfil"><input type="submit" class="modifier-profil-btn" name="modifierProfil" value="Modifier profil"/></a>
                	<button>
                  <a href="${pageContext.request.contextPath}/">Retour à l'accueil</a>  
                 </button>
@@ -153,7 +153,7 @@
          				</div>
      </c:forEach>
      </c:if>    				
-        </form>
+        
     </div>
 </div>
 

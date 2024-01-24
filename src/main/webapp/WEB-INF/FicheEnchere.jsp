@@ -11,7 +11,7 @@
         	<!-- Page Enchérir -->
             <h1>Détail vente</h1>
             <!-- Page enchere finie -->
-            <h1>${ } a remporté l'enchère</h1>
+            <h1>${utilisateur} a remporté l'enchère</h1>
             <!-- Page vente remportée -->
             <h1>Vous avez remporté la vente</h1>
             

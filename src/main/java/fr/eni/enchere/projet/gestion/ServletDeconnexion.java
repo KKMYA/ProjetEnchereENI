@@ -18,15 +18,13 @@ public class ServletDeconnexion extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 
-		if(session.getAttribute("noUtilisateur") != null) {
-			session.invalidate();
-			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-		}
-		else {
-			System.out.println("erreur deconnexion");
-			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-
-		}
+	    if(session.getAttribute("noUtilisateur") != null) {
+	        session.invalidate();
+	        response.sendRedirect(request.getContextPath() + "/");
+	    } else {
+	        System.out.println("erreur deconnexion");
+	        response.sendRedirect(request.getContextPath() + "/");
+	    }
 	}
 
 	

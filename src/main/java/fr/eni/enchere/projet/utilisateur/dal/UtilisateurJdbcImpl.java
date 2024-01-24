@@ -64,7 +64,6 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getPseudo());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -118,8 +117,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getTelephone());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+						e.printStackTrace();
 		}
 		
 	}
@@ -132,8 +130,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getRue());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+						e.printStackTrace();
 		}
 		
 	}
@@ -146,7 +143,6 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getCodePostal());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -174,7 +170,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			stmt.setString(1, utilisateur.getMotDePasse());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
