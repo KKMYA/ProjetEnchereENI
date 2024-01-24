@@ -9,15 +9,15 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
         </head>
         <body>
-        	<!-- Page Enchérir -->
+        	<!-- Page Enchérir. Condition: Connecté et enchère date pas terminée ( pas forcément commencé)  -->
             <h1>Détail vente</h1>
-            <!-- Page enchere finie A voir avec la Servlet-->
+            <!-- Page enchere finie A voir avec la Servlet. Condition: Enchère terminée + id du gagnant de l'enchere != de moi-->
             <h1> a remporté l'enchère</h1>
-            <!-- Page vente remportée -->
+            <!-- Page vente remporté. Condition: Enchère terminée + id du gagnant = moi -->
             <h1>Vous avez remporté la vente</h1>
             
             <img>
-            <!-- Titre à générer -->
+            <!-- Titre de l'enchère -->
             <h2>${ArticleEnVente.nomArticle }</h2>
 
             <!--Description du produit récupéré-->
@@ -44,6 +44,8 @@
                 <input  type="number" id="proposition" name="proposition" required>
                 <input type="submit" value="Enchérir">
             </form>
+            <!-- Page enchère non débutée IdVendeur = moi -->
+            <button>Modifier</button>
             <!-- Page enchère finie -->
             <button>Retour</button>
             
