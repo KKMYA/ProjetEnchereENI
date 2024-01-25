@@ -163,7 +163,7 @@ public class Utilisateur {
 		Integer randomKey;
 		if (RecuperationMDP.CheckMail(email)) {
 			Random random = new Random();
-			randomKey = random.nextInt(1000, 9999);
+			randomKey = random.nextInt( 9999-1000)+1000;
 			return randomKey;
 
 		} else {

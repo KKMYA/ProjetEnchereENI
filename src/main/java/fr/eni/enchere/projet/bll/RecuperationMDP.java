@@ -1,24 +1,21 @@
 package fr.eni.enchere.projet.bll;
 
-<<<<<<< Updated upstream
-=======
+
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.ConnectionProvider;
 import jakarta.servlet.http.HttpServlet;
 
->>>>>>> Stashed changes
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
-<<<<<<< Updated upstream
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.ConnectionProvider;
 import jakarta.servlet.http.HttpServlet;
-=======
->>>>>>> Stashed changes
+
 
 public class RecuperationMDP extends HttpServlet {
 
