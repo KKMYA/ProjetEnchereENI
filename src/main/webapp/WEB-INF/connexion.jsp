@@ -10,51 +10,52 @@
 	<%@include file="style.jsp"%>
 </head>
 <body>
-	<%@include file="Header.jsp"%>
+<%@include file="Header.jsp"%>
 	<div class="container mt-5" >
 		<h1> Me connecter</h1>
-		<form action="./connexion" method="post"text-center justify-content-center align-self-center>
-		  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-		
-		  <!-- Entrée Mail -->
-		  <div class="form-outline mx-auto mb-4" style="width: 25%;">
-		    <label class="form-label" for="email">Adresse Mail</label>
-		    <input type="email" id="email" name="email" class="form-control" />
-		  </div>
-		
-		  <!-- Entrée MDP -->
-		  <div class="form-outline mx-auto mb-4" style="width: 25%;">
-		    <label class="form-label" for="mot_de_passe">Mot de Passe</label>
-		    <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" />
-		  </div>
-		
-		  <!-- Layout colonne -->
-		  <div class="row mx-auto mb-4" >
-		    <div class="col d-flex justify-content-center " style="width: 40%">
-		      <!-- Case se souvenir de moi -->
-		      <div class="form-check">
-		        <input class="form-check-input" type="checkbox" value="" id="Souvenir" name="souvenir" checked />
-		        <label class="form-check-label" for="Souvenir"> Se souvenir de moi </label>
-		      </div>
-		    </div>
-		
-		    <div class="col">
-		      <!-- Lien Mot de passe oublié -->
-		      <a href="./MDP_oublié">Mot de passe oublié?</a>
-		    </div>
-		  </div>
-		
-		  <!-- Bouton validation formulaire -->
-		  <div class= "text-center">
-		  <button type="submit" class=" btn btn-primary btn-block mb-4">Se connecter</button>
-			</div>
-		  <!-- Bouton d'inscription -->
-		  <div class="text-center">
-		    <p>Pas inscrit? <a href="./inscription">S'inscrire</a></p>
-		
-		  </div>
-		</form>
+<form action="./connexion" method="post"text-center justify-content-center align-self-center>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <!-- Entrée Mail -->
+  <div class="form-outline mx-auto mb-4" style="width: 25%;">
+    <label class="form-label" for="email">Adresse Mail</label>
+    <input type="email" id="email" name="email" class="form-control" />
+  </div>
+
+  <!-- Entrée MDP -->
+  <div class="form-outline mx-auto mb-4" style="width: 25%;">
+    <label class="form-label" for="mot_de_passe">Mot de Passe</label>
+    <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" />
+  </div>
+
+  <!-- Layout colonne -->
+  <div class="row mx-auto mb-4" >
+    <div class="col d-flex justify-content-center " style="width: 40%">
+      <!-- Case se souvenir de moi -->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="Souvenir" name="souvenir" checked />
+        <label class="form-check-label" for="Souvenir"> Se souvenir de moi </label>
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- Lien Mot de passe oublié -->
+      <a href="./forgottenPW">Mot de passe oublié?</a>
+    </div>
+  </div>
+
+  <!-- Bouton validation formulaire -->
+  <div class= "text-center">
+	<button type="submit" class=" btn btn-primary btn-block mb-4">Se connecter</button>
 	</div>
-	<%@include file="Footer.jsp"%>
+
+  <!-- Bouton d'inscription -->
+  <div class="text-center">
+    <p>Pas inscrit? <a href="./inscription">S'inscrire</a></p>
+
+  </div>
+</form>
+</div>
+<%@include file="Footer.jsp"%>
 </body>
 </html>

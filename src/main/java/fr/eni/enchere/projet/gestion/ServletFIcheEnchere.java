@@ -36,8 +36,8 @@ public class ServletFIcheEnchere extends HttpServlet {
 		ArticleEnVente articleDemande = articleDAO.afficherArticleSelonIdArticle(noArticle);
 		request.setAttribute("ArticleEnVente", articleDemande);
 		
-		Retrait retrait = retraitDAO.afficherRetrait(articleDemande);
-		request.setAttribute("LieuDeRetrait", retrait);
+	//	Retrait retrait = retraitDAO.afficherRetrait(articleDemande);
+	//	request.setAttribute("LieuDeRetrait", retrait);
 		
 		
 		Utilisateur utilisateurDemande = null;

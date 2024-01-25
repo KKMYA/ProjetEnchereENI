@@ -42,13 +42,11 @@ public class ServletDetailEnchere extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		System.out.println(article);
 		
 		Categorie categorie = new Categorie();
 
 		String libelleCategorie = categorieDAO.getNomCategorie(article.getNoCategorie());
 		categorie.setLibelle(libelleCategorie);
-		System.out.println(categorie);
 		
 		request.setAttribute("retrait", retrait);
 		request.setAttribute("article", article);

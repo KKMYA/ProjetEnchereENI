@@ -36,9 +36,11 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 				<div class="col-md-6">
 					<div class="profile-head">
-						<h5>${utilisateur.prenom} ${utilisateur.nom}</h5>
+						<h5>${utilisateur.prenom}${utilisateur.nom}</h5>
 						<p class="note vendeur">
 							note vendeur: <span>8/10</span>
 						</p>
@@ -58,13 +60,15 @@
 					</div>
 				</div>
 				<div class="col-md-2">
-					<a href="./modificationProfil"><input type="submit"
-						class="modifier-profil-btn" name="modifierProfil"
-						value="Modifier profil" /></a>
-					<button>
-						<a href="${pageContext.request.contextPath}/">Retour à
-							l'accueil</a>
-					</button>
+					<form action="./modificationProfil" method="get">
+						<input type="submit" class="modifier-profil-btn"
+							name="modifierProfil" value="Modifier profil" />
+					</form>
+					<a href="${pageContext.request.contextPath}/"> <input
+						type="submit" class="modifier-profil-btn" name="modifierProfil"
+						value="Retour à l'accueil" />
+					</a>
+
 				</div>
 			</div>
 			<div class="row">
@@ -115,7 +119,7 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6">
-									<label>Télephone</label>
+									<label>Téléphone</label>
 								</div>
 								<div class="col-md-6">
 									<p>${utilisateur.telephone}</p>
@@ -147,35 +151,35 @@
 							</div>
 						</div>
 						<c:if test="${not empty listeArticles}">
-							<c:forEach var="article" items="${listeArticles}">
-								<div class="tab-pane fade" id="AVendre" role="tabpanel"
-									aria-labelledby="profile-tab">
-									<div class="card">
-										<div class="col-md-6">
-											<div class="row mt-4">
+							<div class="tab-pane fade" id="AVendre" role="tabpanel"
+								aria-labelledby="profile-tab">
+								<div class="card">
+									<div class="col-md-6">
+										<div class="row mt-4">
+											<c:forEach var="article" items="${listeArticles}">
 												<div class="col-md-4 mb-4">
 													<div class="card">
 														<h5 class="card-title">${article.nomArticle}</h5>
 														<p class="card-text">${article.description}</p>
-														<p class="card-text">
-															<small class="text-muted">Vendu par:
-																${utilisateur.pseudo}</small>
-														</p>
 													</div>
 												</div>
-											</div>
+											</c:forEach>
 										</div>
 									</div>
 								</div>
-							</c:forEach>
+							</div>
+						</c:if>
+						<c:if test="${utilisateur.administrateur == true}">
+							<form action="./panelAdmin" method="get">
+								<button id="lienPanelAdmin" name="lienPanelAdmin"
+									value="${utilisateur.noUtilisateur}">PANEL ADMIN</button>
+							</form>
 						</c:if>
 					</div>
 				</div>
 			</div>
-			</div>
-			</div>
-			
-				
-				<%@include file="Footer.jsp"%>
+
+
+			<%@include file="Footer.jsp"%>
 </body>
 </html>

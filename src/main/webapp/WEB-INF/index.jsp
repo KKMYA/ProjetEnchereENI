@@ -17,20 +17,20 @@
 <div class="container mt-5">
 <h1 class="text-center">ENI ENCHERES</h1>
 
-<div class="col-auto">
-    <form id="categorieForm" action="./" method="get">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Catégories
-            </button>
-            <div class="dropdown-menu" aria-labelledby="Catégories">
-                <c:forEach var="categorie" items="${listeDeCategories}">
-                    <a class="dropdown-item" href="#" onclick="selectCategory('${categorie.libelle}');">${categorie.libelle}</a>
-                </c:forEach>
-            </div>
+<form id="categorieForm" action="./" method="get">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catégories
+        </button>
+        <div class="dropdown-menu" aria-labelledby="Catégories">
+            <c:forEach var="categorie" items="${listeDeCategories}">
+                <button class="dropdown-item" type="submit" name="selectedCategory" value="${categorie.libelle}">
+                    ${categorie.libelle}
+                </button>
+            </c:forEach>
         </div>
-    </form>
-</div>
+    </div>
+</form>
 
 <form class="text-center justify-content-center d-flex align-items-center mt-4">
     <div class="w-25">
