@@ -22,7 +22,7 @@
 
 	<%@include file="Header.jsp"%>
 	<div class="Infos Profil">
-		<div class="container ">
+		<div class="container mt-5 ">
 			<h1>Mon profil</h1>
 
 			<div class="row">
@@ -169,7 +169,6 @@
 								</div>
 							</c:forEach>
 						</c:if>
-
 					</div>
 				</div>
 			</div>

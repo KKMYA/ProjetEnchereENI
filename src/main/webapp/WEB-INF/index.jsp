@@ -10,41 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<%@include file="style.jsp"%>
 </head>
-<body style="background-color: aqua">
+<body >
+<%@include file="Header.jsp"%>
+<div class="container mt-5">
 <h1 class="text-center">ENI ENCHERES</h1>
-<c:if test="${noUtilisateur==null}">
-	<div class="container">
-	    <div class="row justify-content-start">
-	        <div class="col-auto">
-	            <a href="./connexion" class="text-decoration-none">
-	                <button class="btn btn-light" type="button" id="Connexion">
-	                    Se connecter / S'inscrire
-	                </button>
-	            </a>
-	  	</div>
-</c:if>
-<c:if test="${noUtilisateur!=null}">
-		 <div class="row justify-content-start">
-	        <div class="col-auto">
-	            <a href="./affichageProfil" class="text-decoration-none">
-	                <button class="btn btn-light" type="button" id="Connexion">
-	                    Mon profil
-	                </button>
-	            </a>
-	            <a href="./AjoutArticle" class="text-decoration-none">
-	                <button class="btn btn-light" type="button" id="Connexion">
-	                    Vendre Un Article
-	                </button>
-	            </a>
-	            <a href="./deconnexion" class="text-decoration-none">
-	                <button class="btn btn-light" type="button" id="Deconnexion">
-	                    Se déconnecter
-	                </button>
-	            </a>
-	  	</div>
-
-</c:if>
 
 <div class="col-auto">
     <form id="categorieForm" action="./" method="get">
@@ -95,8 +66,7 @@
 		</form>
 	</c:forEach>
 </c:if>
-    <div class="container text-center">
-        <!-- Le contenu du conteneur de la barre de navigation Bootstrap -->
-    </div>
+      </div>
+    <%@include file="Footer.jsp"%>
     </body>
     </html>
