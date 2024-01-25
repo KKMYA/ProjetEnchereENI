@@ -22,7 +22,7 @@ public class ServletDeconnexion extends HttpServlet {
 	        session.invalidate();
 	        response.sendRedirect(request.getContextPath() + "/");
 	    } else {
-	        System.out.println("erreur deconnexion");
+	        
 	        response.sendRedirect(request.getContextPath() + "/");
 	    }
 	}

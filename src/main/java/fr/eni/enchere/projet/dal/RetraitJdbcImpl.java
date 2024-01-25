@@ -13,7 +13,7 @@ public class RetraitJdbcImpl implements RetraitDAO {
 	private static final String INSERT_RETRAIT = "INSERT INTO RETRAITS(no_article, rue, code_postal, ville) VALUES (?,?,?,?)";
 	private static final String DELETE_RETRAIT = "DELETE FROM RETRAITS WHERE no_article=?";
 	private static final String UPDATE_RETRAIT = "UPDATE RETRAITS SET rue=?, code_postal=?, ville=? WHERE no_article=?";
-	private static final String SELECT_RETRAIT_ID = "SELECT RETRAITS FROM CATEGORIES WHERE no_artcle =?";
+	private static final String SELECT_RETRAIT_ID = "SELECT * FROM RETRAITS WHERE no_article =?";
 	
 	
 	@Override
@@ -51,11 +51,11 @@ public class RetraitJdbcImpl implements RetraitDAO {
 	}
 	
 	@Override
-	public void deleteRetrait(ArticleEnVente article) {
+	public void deleteRetrait(int noArticle) {
 		try(Connection con = ConnectionProvider.getConnection();
 				PreparedStatement stmt = con.prepareStatement(DELETE_RETRAIT);) 
 				{
-				stmt.setInt(1, article.getNoArticle());
+				stmt.setInt(1, noArticle);
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -63,17 +63,14 @@ public class RetraitJdbcImpl implements RetraitDAO {
 	}
 	
 	@Override
-	public Retrait afficherRetrait(ArticleEnVente article) {
-		Retrait retraitPourArticle = new Retrait();
-		
+	public Retrait afficherRetrait(int idArticle) {
+		Retrait retrait = new Retrait();
 		try(Connection con = ConnectionProvider.getConnection();
 				PreparedStatement stmt = con.prepareStatement(SELECT_RETRAIT_ID);) 
 				{
-				stmt.setInt(1, article.getNoArticle());
+				stmt.setInt(1, idArticle);
 				ResultSet rs = stmt.executeQuery();
 				while(rs.next()){
-					Retrait retrait = new Retrait();
-					
 					retrait.setRue(rs.getString("rue"));
 					retrait.setCodePostal(rs.getString("code_postal"));
 					retrait.setVille(rs.getString("ville"));
@@ -81,7 +78,7 @@ public class RetraitJdbcImpl implements RetraitDAO {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		return retraitPourArticle;
+		return retrait;
 	}
 
 

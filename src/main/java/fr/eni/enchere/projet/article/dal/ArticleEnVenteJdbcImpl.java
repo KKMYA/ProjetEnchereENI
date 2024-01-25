@@ -128,13 +128,15 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 			stmt.setInt(1, noArticle);
 			ResultSet rs = stmt.executeQuery();
 			rs.next();
+			article.setNoArticle(rs.getInt("no_article"));
+			article.setNoCategorie(rs.getInt("no_categorie"));
 			article.setNomArticle(rs.getString("nom_article"));
+			article.setNoUtilisateur(rs.getInt("no_utilisateur"));
 			article.setDescription(rs.getString("description"));
 			article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
 			article.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
 			article.setMiseAPrix(rs.getInt("prix_initial"));
 			article.setPrixVente(rs.getInt("prix_vente"));
-			//article.setRetrait(RetraitDAO.getRetraitByID(rs.getInt(1))
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -182,7 +184,8 @@ public class ArticleEnVenteJdbcImpl implements ArticleEnVenteDAO {
 				
 				while(rs.next()) {
 					ArticleEnVente article = new ArticleEnVente();
-					
+					article.setNoUtilisateur(rs.getInt("no_utilisateur"));
+					article.setNoArticle(rs.getInt("no_article"));
 					article.setNomArticle(rs.getString("nom_article"));
 					article.setDescription(rs.getString("description"));
 					article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());

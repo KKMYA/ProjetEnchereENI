@@ -9,6 +9,14 @@
 background-color: #CFAB8C;
 border-color:  #545454;
 }
+button{
+	background-color: #CFAB8C;
+	border-color:  #545454;
+	color:white !important;
+	border-radius:.25rem;
+}
+button : hover{
+}
 .page-background {
     background-color: #F2F3EF;
     padding-top: 4em;
@@ -134,5 +142,12 @@ td a{
 .fichier :hover {
 	background-color: white;
 	color: #CFAB8C;
+}
+
+.modifier-profil-btn{
+	background-color: #CFAB8C;
+	border-color:  #545454;
+	padding: 10px;
+	margin-bottom: 20px;
 }
 </style>

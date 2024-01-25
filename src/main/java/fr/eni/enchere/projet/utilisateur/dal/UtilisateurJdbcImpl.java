@@ -23,6 +23,8 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	private static final String UPDATE_CODEPOSTAL_UTILISATEUR = "UPDATE UTILISATEURS SET code_postal = ? WHERE no_utilisateur = ?" ;
 	private static final String UPDATE_VILLE_UTILISATEUR ="UPDATE UTILISATEURS SET ville = ? WHERE no_utilisateur = ?";
 	private static final String UPDATE_MOTDEPASSE_UTILISATEUR = "UPDATE UTILISATEURS SET mot_de_passe = ? WHERE no_utilisateur = ?";
+	private static final String ADMIN_ADD_UTILISATEUR = "UPDATE UTILISATEURS SET administrateur = 1 WHERE no_utilisateur = ?";
+	private static final String ADMIN_REMOVE_UTILISATEUR = "UPDATE UTILISATEURS SET administrateur = 0 WHERE no_utilisateur = ?";
 
 	
 	
@@ -207,7 +209,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 					rs.getString("ville"),
 					rs.getString("mot_de_passe"),
 					rs.getInt("credit"),
-          rs.getInt("randomKey"),
+					rs.getInt("randomKey"),
 					rs.getBoolean("administrateur")
 					);
 
@@ -220,4 +222,21 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 		return null;
 	}
 
+	public void adminAdd(int noUtilisateur) {
+		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(ADMIN_ADD_UTILISATEUR);) {
+			stmt.setInt(1, noUtilisateur);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void adminRemove(int noUtilisateur) {
+		try(Connection con = ConnectionProvider.getConnection();PreparedStatement stmt = con.prepareStatement(ADMIN_REMOVE_UTILISATEUR);) {
+			stmt.setInt(1, noUtilisateur);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

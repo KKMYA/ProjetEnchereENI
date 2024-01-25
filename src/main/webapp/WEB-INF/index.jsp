@@ -32,6 +32,11 @@
 	                    Mon profil
 	                </button>
 	            </a>
+	            <a href="./AjoutArticle" class="text-decoration-none">
+	                <button class="btn btn-light" type="button" id="Connexion">
+	                    Vendre Un Article
+	                </button>
+	            </a>
 	            <a href="./deconnexion" class="text-decoration-none">
 	                <button class="btn btn-light" type="button" id="Deconnexion">
 	                    Se déconnecter
@@ -40,29 +45,20 @@
 	  	</div>
 
 </c:if>
+
 <div class="col-auto">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catégories
-        </button>
-        <div class="dropdown-menu" aria-labelledby="Catégories">
-            <c:forEach var="article" items="${categorieInformatique}">
-                <a class="dropdown-item" href="#">Informatique ${article}</a>
-            </c:forEach>
-
-            <c:forEach var="article" items="${categorieAmeublement}">
-                <a class="dropdown-item" href="#">Ameublement ${article}</a>
-            </c:forEach>
-
-            <c:forEach var="article" items="${categorieVetements}">
-                <a class="dropdown-item" href="#">Vêtements ${article}</a>
-            </c:forEach>
-
-            <c:forEach var="article" items="${categorieSport}">
-                <a class="dropdown-item" href="#">Sport et Loisirs ${article}</a>
-            </c:forEach>
+    <form id="categorieForm" action="./" method="get">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Catégories
+            </button>
+            <div class="dropdown-menu" aria-labelledby="Catégories">
+                <c:forEach var="categorie" items="${listeDeCategories}">
+                    <a class="dropdown-item" href="#" onclick="selectCategory('${categorie.libelle}');">${categorie.libelle}</a>
+                </c:forEach>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <form class="text-center justify-content-center d-flex align-items-center mt-4">
@@ -82,11 +78,12 @@
 <c:if test="${not empty listeArticles}">
 	<c:forEach var="article" items="${listeArticles}">
 	<c:set var="articleId" value="${article.noArticle}"></c:set>
-		<form action="./DetailEnchere" method="post"> 
+		<form action="./DetailEnchere" method="get"> 
        	 <div class="row mt-4">
          	<div class="col-md-4 mb-4">
                 	<div class="card">
                    		<h5 class="card-title"><c:out value="${article.nomArticle}" /></h5>
+                   		<img width="100" src ="img/${article.image}"/>
                     	<p class="card-text"><small class="text-muted"><c:out value="Mis en vente le : ${article.dateDebutEncheres}" /></small></p>
                      	<p class="card-text"><small class="text-muted"><c:out value="État de la vente : " /></small></p>                   
                      	<p class="card-text"><small class="text-muted"><c:out value="Prix :" /></small></p>                   

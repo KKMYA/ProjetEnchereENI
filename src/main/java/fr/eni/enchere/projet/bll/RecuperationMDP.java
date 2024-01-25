@@ -1,11 +1,10 @@
 package fr.eni.enchere.projet.bll;
 
+
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.ConnectionProvider;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,10 +12,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
+import fr.eni.enchere.projet.bo.Utilisateur;
+import fr.eni.enchere.projet.dal.ConnectionProvider;
+import jakarta.servlet.http.HttpServlet;
+
+
 public class RecuperationMDP extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
 
-    public static boolean CheckMail(String email) {
+    //Permet de vérifier si l'adresse mail correspond à une entrée en BDD
+	public static boolean CheckMail(String email) {
 
         boolean check = false;
 
@@ -40,6 +46,28 @@ public class RecuperationMDP extends HttpServlet {
         return check;
     }
 
+
+
+    //Méthode permettant d'affecter une random key à un utilisateur en BDD
+    public void setRandomKey(Integer randomKey, String email) {
+        int getRandomKey = Integer.parseInt((Utilisateur.generateRandomKey(email)));
+        if (getRandomKey > 999 && getRandomKey < 10000){
+            try (Connection con = ConnectionProvider.getConnection()) {
+                assert con != null;
+                try (PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET randomKey = ?  WHERE email = ? ")) {
+                    pstmt.setString(1, (Integer.toString(getRandomKey)));
+                    pstmt.setString(2, email);
+                    pstmt.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
+
+
+     // Permet de vérifier si la random key entrée par l'utilisateur correspond à la random key présente à l'index de son compte en BDD
     private static boolean RandomKeyValide(String email, Integer randomKey) {
         if (CheckMail(email))
             try (Connection con = ConnectionProvider.getConnection();
@@ -60,18 +88,18 @@ public class RecuperationMDP extends HttpServlet {
 
     }
 
-
+    //Méthode crééant un nouveau MDP stocké en BDD pour l'utilisateur choisi
     public static void ResetPass(String email, Integer randomKey) throws SQLException {
         if (CheckMail(email)) {
             if (RandomKeyValide(email, randomKey)) {
-                Random random = new Random();
-                String nouveauMDP = String.valueOf(random.nextInt(100000, 999999));
+                Random ran = new Random();
+                int nouveauMDP = ran.nextInt( 999999-100000)+100000;
 
                 try {
                     Connection con = ConnectionProvider.getConnection();
                     PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET mot_de_passe = ? WHERE email = ?");
                     {
-                        pstmt.setString(1, nouveauMDP);
+                        pstmt.setInt(1, nouveauMDP);
                         pstmt.setString(2, email);
                         pstmt.executeUpdate();
                     }
@@ -88,20 +116,8 @@ public class RecuperationMDP extends HttpServlet {
 
     }
 
-    public void setRandomKey(Integer randomKey, String email) {
-        int getRandomKey = Utilisateur.generateRandomKey(email);
-        if (getRandomKey > 999 && getRandomKey < 10000){
-            try (Connection con = ConnectionProvider.getConnection();
-                 PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET randomKey = ?  WHERE email = ? ")) {
-                pstmt.setInt(1, getRandomKey);
-                pstmt.setString(2, email);
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
 
-            }
-        }
-    }
+
 }
   /*  private static void updateMDP(String email, String nouveauMDP){
         if (CheckMail(email)) {

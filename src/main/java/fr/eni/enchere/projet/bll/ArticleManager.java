@@ -20,14 +20,7 @@ public class ArticleManager {
 		
 	}
 	
-	
-	public static int RecupererNoArticleDeLaListe(List<ArticleEnVente> listeArticle) {
-		int noArticle=0;
-		for(ArticleEnVente articleEnVente : listeArticle) {
-			noArticle = articleEnVente.getNoArticle();
-		}
-		return noArticle;
-	}
+
 
 	public static void supressionArticleParUtilisateur(int idSession) {
 		

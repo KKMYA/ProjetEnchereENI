@@ -13,10 +13,8 @@
         <h1>Mon profil</h1>
 
         
-        <form action="/stockage-comptes" method="post"> <!-- car présence de mdp-->
+         <!-- car présence de mdp-->
 
-            <!--Plus de Fieldset (visible) avec l'ajout du bootstrap-->
-            <fieldset>
                 <label for="pseudo">Pseudo: </label>
                 <input type="text"
                 id="pseudo" 
@@ -90,41 +88,16 @@
                 pattern="[A-Z a-z]{3,}"
                 title=""><br>
 
-                <!-- Pas présent dans la table Utilisateurs-->
-                <label for="old_mot_de_passe">Mot de passe actuel: </label>
-                <input type="password"
-                id="old_mot_de_passe" 
-                name="old_mot_de_passe" 
-                required
-                placeholder="mot de passe actuel"
-                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}"
-                title=" 8 caractères minimum. Une majuscule, une miniscule et un caractère spécial sont obligatoires"> <br>
 
-                <!-- Pas présent dans la table Utilisateurs-->
-                <label for="new_mot_de_passe">Nouveau mot de passe: </label>
-                <input type="password"
-                id="new_mot_de_passe" 
-                name="new_mot_de_passe" 
-                required
-                placeholder="nouveau mot de passe"
-                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}"
-                title=" 8 caractères minimum. Une majuscule, une miniscule et un caractère spécial sont obligatoires">
-
-                <label for="confirmation">Confirmation: </label>
-                <input type="password"
-                id="confirmation" 
-                name="confirmation" 
-                required
-                placeholder="confirmation"
-                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}[A-Z a-z\W]{8,}"><br><br><br>
-
-                <p>Crédit: </p>
+                <p>Crédit: ${utilisateur.credit }</p>
 
                 <input type="submit" value="Enregistrer">
-                <input type="button" value="Supprimer mon compte">
-            </fieldset>
-
-        </form>
+                <form action="./suppressionProfil" method="post">
+                <button>
+                <input type="submit" value="Supprimer mon compte">
+                </button>
+                </form>
+       
 
     </body>
 
