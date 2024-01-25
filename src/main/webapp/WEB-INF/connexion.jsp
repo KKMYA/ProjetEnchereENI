@@ -36,7 +36,7 @@
 
     <div class="col">
       <!-- Lien Mot de passe oublié -->
-      <a href="./MDP_oublié">Mot de passe oublié?</a>
+      <a href="./forgottenPW">Mot de passe oublié?</a>
     </div>
   </div>
 

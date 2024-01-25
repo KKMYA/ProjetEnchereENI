@@ -1,7 +1,7 @@
 package fr.eni.enchere.projet.gestion;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
@@ -34,13 +34,14 @@ public class ServletAcceuil extends HttpServlet {
 		HttpSession session = request.getSession(false);
 	
 		
+		//if(request.getParameter("Rechercher") == null && request.getParameter("selectedCategory") == null )
 		
 		List<ArticleEnVente> listeDeTousLesArticles = articleDAO.afficherArticleEnVente();
 		loadImages(listeDeTousLesArticles);
 		List<Categorie> listeDeCategories = categorieDAO.afficherCategories();
 		request.setAttribute("listeDeCategories", listeDeCategories);
 		
-
+		
 		
 		if(request.getParameter("Rechercher") != null){
 			String recherche = request.getParameter("Rechercher").toString();			
@@ -49,6 +50,13 @@ public class ServletAcceuil extends HttpServlet {
 			request.setAttribute("listeArticles", listeArticlesRecherches);
 			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 
+		}else if(request.getParameter("selectedCategory")!=null) {
+			List<ArticleEnVente>listeArticlesParCategorie = new ArrayList<>();
+			String categorie = request.getParameter("selectedCategory");
+			int idCategorie = categorieDAO.quelleCategorie(categorie);
+			listeArticlesParCategorie = articleDAO.afficherAticleEnVenteSelonCategorie(idCategorie);
+			request.setAttribute("listeArticles", listeArticlesParCategorie);
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 			
 		}else {
 			request.setAttribute("listeArticles", listeDeTousLesArticles);
