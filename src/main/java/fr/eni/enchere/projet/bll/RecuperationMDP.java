@@ -1,14 +1,24 @@
 package fr.eni.enchere.projet.bll;
 
+<<<<<<< Updated upstream
+=======
+import fr.eni.enchere.projet.bo.Utilisateur;
+import fr.eni.enchere.projet.dal.ConnectionProvider;
+import jakarta.servlet.http.HttpServlet;
+
+>>>>>>> Stashed changes
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
+<<<<<<< Updated upstream
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.ConnectionProvider;
 import jakarta.servlet.http.HttpServlet;
+=======
+>>>>>>> Stashed changes
 
 public class RecuperationMDP extends HttpServlet {
 
@@ -62,14 +72,14 @@ public class RecuperationMDP extends HttpServlet {
     public static void ResetPass(String email, Integer randomKey) throws SQLException {
         if (CheckMail(email)) {
             if (RandomKeyValide(email, randomKey)) {
-                Random random = new Random();
-                String nouveauMDP = String.valueOf(random.nextInt(100000, 999999));
+                Random ran = new Random();
+                int nouveauMDP = ran.nextInt( 999999-100000)+100000;
 
                 try {
                     Connection con = ConnectionProvider.getConnection();
                     PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET mot_de_passe = ? WHERE email = ?");
                     {
-                        pstmt.setString(1, nouveauMDP);
+                        pstmt.setInt(1, nouveauMDP);
                         pstmt.setString(2, email);
                         pstmt.executeUpdate();
                     }
