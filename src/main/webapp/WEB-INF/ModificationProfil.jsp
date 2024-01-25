@@ -89,6 +89,10 @@
                 placeholder="${utilisateur.ville}"
                 title=""><br>
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                 <p>Crédit: ${utilisateur.credit }</p>
                 <input type="submit" value="Enregistrer">
                 </form>
