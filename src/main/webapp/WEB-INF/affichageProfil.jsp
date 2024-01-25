@@ -147,6 +147,7 @@
 								</div>
 								<div class="col-md-6">
 									<p>${utilisateur.ville}</p>
+									
 								</div>
 							</div>
 						</div>
