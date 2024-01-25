@@ -1,11 +1,8 @@
-body{
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
 .containerHead {
     width: 80%;
     margin: 0 auto; /* Centrer DIV*/
     text-align: end;
+    padding-top: 2px
 
 }
 .containerFoot{
@@ -24,7 +21,8 @@ body{
     width: 100%;
     position: fixed;
     background: #CFAB8C;
-    padding: 30px 0;
+    padding: 15px 0;
+    margin: 0px;
     color: #fff;
     border-bottom: 1px solid #545454;
 
@@ -38,12 +36,16 @@ body{
     color: #fff;
     border-top: 1px solid #545454
 }
-
+nav{
+    margin: 0px;
+    padding: 0px;
+}
 .fixed-header{
     top: 0;
 }
 .fixed-footer{
     bottom: 0;
+    padding-bottom: 0px;
 }
 /* style nav*/
 
@@ -51,10 +53,34 @@ body{
     line-height: 200px; /* Scrollbar */
 }
 nav a{
-    color: #004AAD;
+    color: black;
+    padding: 8px 50px;
+    position:relative; left:100px; top: 55px;
+    font-size: 120%;
+    border-top: 1px solid #545454 ;
+    border-right: 1px solid #545454 ;
+    border-left: 1px solid #545454 ;
+    overflow: hidden;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    vertical-align: middle;
+    margin: 0px;
+    
+}
+a::before{
+    text-decoration: underline;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    
+}
+nav a:hover {
+    background-color: white;
+    color: black !important;
+    font-weight: 500;
+}
+a{
+    color: black;
     padding: 7px 25px;
     display: inline-block;
-    text-decoration: underline;
     position:relative; left:150px; top:-10px;
 }
 .div-1{
@@ -65,4 +91,25 @@ nav a{
 
 .div-2{
     position:relative; left:100px; top:-10px;
+}
+img{
+    height: 5%;
+    width: 3%; 
+    margin: 10px 0px 0px 32px;
+    padding-bottom: auto;
+    float: inline-start;
+
+}
+*{
+    font-family: 'Courier New', Courier, monospace
+}
+.nav-a{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    color: #000;
+    border-top: 1px solid #545454 ;
+}
+.copyright{
+    padding-bottom: 0px;
 }
