@@ -59,7 +59,7 @@
         <div class="fichier btn btn-primary">
    --%>     
             Ajouter Photo
-            <input type="file" name="image" accept="image/png, image/*"/>
+            <input type="file" name="image" accept="image/jpeg"/>
         </div>
     </div>
     
