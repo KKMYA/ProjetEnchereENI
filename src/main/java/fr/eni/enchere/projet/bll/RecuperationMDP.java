@@ -89,17 +89,15 @@ public class RecuperationMDP extends HttpServlet {
     }
 
     //Méthode crééant un nouveau MDP stocké en BDD pour l'utilisateur choisi
-    public static void ResetPass(String email, Integer randomKey) throws SQLException {
+    public static void ResetPass(String email, String nouveauMotDePasse) throws SQLException {
         if (CheckMail(email)) {
-            if (RandomKeyValide(email, randomKey)) {
-                Random ran = new Random();
-                int nouveauMDP = ran.nextInt( 999999-100000)+100000;
+            if (RandomKeyValide(email, Utilisateur.getRandomKey())) {
 
                 try {
                     Connection con = ConnectionProvider.getConnection();
                     PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET mot_de_passe = ? WHERE email = ?");
                     {
-                        pstmt.setInt(1, nouveauMDP);
+                        pstmt.setString(1, nouveauMotDePasse);
                         pstmt.setString(2, email);
                         pstmt.executeUpdate();
                     }
