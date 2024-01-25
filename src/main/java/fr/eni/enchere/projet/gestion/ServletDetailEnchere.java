@@ -34,7 +34,6 @@ public class ServletDetailEnchere extends HttpServlet {
 		
 		ArticleEnVente article = articleDAO.afficherArticleSelonIdArticle(noArticle);	
 		Retrait retrait = retraitDAO.afficherRetrait(noArticle);
-		
 		int userId = article.getNoUtilisateur();
 		try {
 			Utilisateur user = utilisateurDAO.select(userId);
