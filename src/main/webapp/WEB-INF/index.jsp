@@ -95,8 +95,6 @@
 		</form>
 	</c:forEach>
 </c:if>
-    <div class="container text-center">
-        <!-- Le contenu du conteneur de la barre de navigation Bootstrap -->
-    </div>
+
     </body>
     </html>
