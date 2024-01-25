@@ -30,12 +30,11 @@ public class RecuperationMDP extends HttpServlet {
              PreparedStatement pstmt = con.prepareStatement("SELECT email FROM UTILISATEURS WHERE email = ?")) {
 
             pstmt.setString(1, email);
-
+ 
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                //check = true;
-                check = rs.next();
+                check = true;
 
             }
 

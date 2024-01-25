@@ -7,17 +7,17 @@
     <title>Entrer nouveau Mot de passe</title>
 </head>
 <body>
-<form action="">
+<form action="./setNewPW" method="post">
 <div class="row mb-3 w-50">
   <label for="EntrerMDP" class="col-sm-2 col-form-label">Entrer nouveau mot de passe</label>
   <div class="col-sm-10">
-    <input type="password" class="form-control" id="EntrerMDP">
+    <input type="password" class="form-control" id="EntrerMDP" name="EntrerMDP">
   </div>
 </div>
   <div class="row mb-3 w-50">
     <label for="ConfirmMDP" class="col-sm-2 col-form-label">Confirmer nouveau mot de passe</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="ConfirmMDP">
+      <input type="password" class="form-control" id="ConfirmMDP"name="ConfirmMDP">
     </div>
   </div>
   <div>

@@ -1,6 +1,5 @@
 package fr.eni.enchere.projet.bll;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
