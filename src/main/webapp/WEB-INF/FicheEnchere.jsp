@@ -14,9 +14,8 @@
             
             <!-- Page enchere finie A voir avec la Servlet. Condition: Enchère terminée + id du gagnant de l'enchere != de moi-->
             <h1> a remporté l'enchère</h1>
-            <!-- Page vente remporté. Condition: Enchère terminée + id du gagnant = moi -->
-
-
+            
+            <!-- Page vente remportée. Condition: Enchère terminée + id du gagnant = moi -->
             <h1>Vous avez remporté la vente</h1>
             
             <img>
