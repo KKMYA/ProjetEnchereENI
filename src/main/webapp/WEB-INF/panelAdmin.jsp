@@ -10,56 +10,60 @@
 <body>
 <h1> PANNEAU D'ADMINISTRATION </h1>
 
- <form action="./inscription" method="post"> <!-- car prÃ©sence de mdp-->
+ 	<form action="./panelAdmin" method="post">
+	        <label for="pseudo">Veuillez indiquer l'adresse e-mail de l'utilisateur dont vous souhaitez supprimer le compte ainsi que les ventes : </label>
+	        <input type="text"
+	            id="userDELETE"
+	            name="userDELETE"
+	            autofocus
+	            
+	            placeholder="exemple@xyz.com">
+	        <button type="submit">Supprimer l'utilisateur</button>
+	</form>
+	<br>
 
- 		<fieldset>   
-                <label for="pseudo">Veuillez indiquer le pseudo d'un utilisateur à supprimer et supprimer les ventes liées à cet utilisateur : </label>
-                <input type="text"
-                id="pseudo" 
-                name="pseudo" 
-                autofocus
-                required
-                placeholder="pseudo">
-                
-                <br>
-
-                <label for="nom">Veuillez indiquer une catégorie que vous souhaitez AJOUTER : </label>
-                <input type="text"
-                id="categorieADD" 
-                name="categorieADD" 
-                required
-                placeholder="Categorie"> 
-                
-                <br>
-                
-                <label for="nom">Veuillez indiquer le pseudo de l'utilisateur à qui DONNER les droits Administrateur : </label>
-                <input type="text"
-                id="adminADD" 
-                name="adminADD" 
-                required
-                placeholder="Pseudo"> 
-                
-                <br>
-                
-                <label for="nom">Veuillez indiquer le pseudo de l'utilisateur à qui RETIRER les droits Administrateur : </label>
-                <input type="text"
-                id="adminDELETE" 
-                name="adminDELETE" 
-                required
-                placeholder="Pseudo"> 
-                
-                <br>
-                
-          		<div class="form-group">
-    			<label for="categorieChoix"> Veuillez sélectionner la catégorie que vous souhaitez SUPPRIMER</label>
-    			<select class="custom-select" id="categorieChoix" name="categorieChoix" required>
-        		<option selected>Choisissez une catégorie</option>
-        		<c:forEach items="${listeDeCategories}" var="categorie">
-            		<option value="${categorie.noCategorie}">${categorie.libelle}</option>
-        		</c:forEach>
-    </select>
-</div>
-		</fieldset>
+	 <form action="./panelAdmin" method="post">
+	        <label for="nom">Veuillez indiquer l'adresse e-mail de l'utilisateur à qui DONNER les droits Administrateur : </label>
+	        <input type="text"
+	            id="adminADD"
+	            name="adminADD"
+	            
+	            placeholder="Pseudo">
+	        <button type="submit">Donner les droits d'administrateur</button>
+	</form>
+	<br>
+	<form action="./panelAdmin" method="post">
+	        <label for="nom">Veuillez indiquer l'adresse e-mail de l'utilisateur à qui RETIRER les droits Administrateur : </label>
+	        <input type="text"
+	            id="adminREMOVE"
+	            name="adminREMOVE"
+	            
+	            placeholder="Pseudo">
+	        <button type="submit">Retirer les droits d'administrateur</button>	    
+	</form>
+	<br>
+	 <form action="./panelAdmin" method="post">
+	        <label for="nom">Veuillez indiquer une catégorie que vous souhaitez AJOUTER : </label>
+	        <input type="text"
+	            id="categorieADD"
+	            name="categorieADD"
+	            
+	            placeholder="Categorie">
+	        
+	        <button type="submit">Ajouter la catégorie</button>
+	</form>	
+	<br>
+	<form action="./panelAdmin" method="post">
+	    <div class="form-group">
+	        <label for="categorieChoix">Veuillez sélectionner la catégorie que vous souhaitez SUPPRIMER</label>
+	        <select class="custom-select" id="categorieChoix" name="categorieChoix" required>
+	            <option selected>Choisissez une catégorie</option>
+	            <c:forEach items="${listeDeCategories}" var="categorie">
+	                <option value="${categorie.noCategorie}">${categorie.libelle}</option>
+	            </c:forEach>
+	        </select>
+	        <button type="submit">Supprimer la catégorie</button>
+	    </div>
 	</form>
 </body>
 </html>

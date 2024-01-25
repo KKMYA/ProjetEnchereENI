@@ -11,7 +11,7 @@ public interface RetraitDAO {
 	
 	//public void deleteRetrait(ArticleEnVente article);
 	
-	public Retrait afficherRetrait(ArticleEnVente article);
+	public Retrait afficherRetrait(int idArticle);
 
 	void deleteRetrait(int noArticle);
 	

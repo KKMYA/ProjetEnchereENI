@@ -15,7 +15,6 @@ public class ArticleEnVente {
 	private LocalDate dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	// noUtilsateur de prixVente
 	private String etatVente;
 	private String image;
 	
@@ -165,6 +164,12 @@ public class ArticleEnVente {
 				+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
 				+ ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
 	}
+
+
+
+
+
+
 
 
 

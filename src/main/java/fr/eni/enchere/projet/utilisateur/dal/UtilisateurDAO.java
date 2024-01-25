@@ -29,4 +29,8 @@ public interface UtilisateurDAO {
 	public void updateVille(Utilisateur utilisateur);
 	
 	public void updateMotDePasse(Utilisateur utilisateur);
+	
+	public void adminAdd(int noUtilisateur);
+	
+	public void adminRemove (int noUtilisateur);
 }
