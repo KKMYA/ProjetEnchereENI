@@ -33,4 +33,6 @@ public interface UtilisateurDAO {
 	public void adminAdd(int noUtilisateur);
 	
 	public void adminRemove (int noUtilisateur);
+	
+	public boolean checkPseudo (String pseudo);
 }
