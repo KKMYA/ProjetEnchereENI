@@ -13,7 +13,6 @@ public class ArticleEnVente {
 	private LocalDate dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	// noUtilsateur de prixVente
 	private String etatVente;
 	
 	public ArticleEnVente() {
@@ -152,6 +151,12 @@ public class ArticleEnVente {
 				+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
 				+ ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
 	}
+
+
+
+
+
+
 
 
 

@@ -29,7 +29,7 @@ public class CategorieJdbcImpl implements CategorieDAO{
 		try(Connection con = ConnectionProvider.getConnection();					
 		PreparedStatement stmt = con.prepareStatement(INSERT_CATEGORIE, Statement.RETURN_GENERATED_KEYS);)
 		{
-			stmt.setString(1, "libelle");
+			stmt.setString(1, categorie.getLibelle());
 			stmt.executeUpdate();
 			
 			ResultSet rs = stmt.getGeneratedKeys();
@@ -109,7 +109,7 @@ public class CategorieJdbcImpl implements CategorieDAO{
 				
 				PreparedStatement stmt = con.prepareStatement(SELECT_ID_CATEGORIE);)
 			{
-			stmt.setString(2, categorie);		
+			stmt.setString(1, categorie);		
 			
 			ResultSet rs = stmt.executeQuery();
 			
@@ -138,7 +138,7 @@ public class CategorieJdbcImpl implements CategorieDAO{
 			ResultSet rs = stmt.executeQuery();
 			
 			if(rs.next()) {
-			categorie = rs.getString(2);
+			categorie = rs.getString("libelle");
 			}
 		
 			} catch (SQLException e) {

@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
         </head>
         <body>
-        	<!-- Page Enchérir. Condition: Connecté et enchère date pas terminée ( pas forcément commencé)  -->
+       	<!-- Page Enchérir. Condition: Connecté et enchère date pas terminée ( pas forcément commencé)  -->
             <h1>Détail vente</h1>
             
             <!-- Page enchere finie A voir avec la Servlet. Condition: Enchère terminée + id du gagnant de l'enchere != de moi-->
@@ -21,26 +21,25 @@
             
             <img>
             <!-- Titre de l'enchère -->
-            <h2>${ArticleEnVente.nomArticle }</h2>
+            <h2>${article.nomArticle}</h2>
 
             <!--Description du produit récupéré-->
-            <p>Description: ${ArticleEnVente.description} </p>
+            <p>Description: ${article.description} </p>
 
             <!--Catégorie affilié lors de la création de la vente-->
-            <p>Catégorie: ${CategorieArticle.libelle}</p>
+            <p>Catégorie: ${categorie.libelle}</p>
 
             <!--Meilleure offre en temps réel-->
-            <p>Meilleure offre: ${ArticleEnVente.prixVente}</p> 
+            <p>Meilleure offre: ${article.prixVente}</p> 
 
-            <p>Mise à prix: ${ArticleEnVente.miseAPrix} </p>
+            <p>Mise à prix: ${article.miseAPrix} </p>
 
-            <p>Fin de l'enchère: ${ArticleEnVente.dateFinEncheres }</p>
+            <p>Fin de l'enchère: ${article.dateFinEncheres }</p>
 			
-            <p>Retrait: ${LieuDeRetrait.rue} ${LieuDeRetrait.codePostal} ${LieuDeRetrait.ville }</p>
+            <p>Retrait: ${retrait.rue} - ${retrait.codePostal} ${retrait.ville }</p>
             
 			<!-- Récupéré grace à Servlet Fiche Enchère -->
-            <p>Vendeur: ${PseudoUtilisateur.pseudo}</p>
-
+            <p>Vendeur: ${utilisateur.pseudo}</p>
 			<!-- Page enchère -->
             <form method="post">
                 <label>Ma proposition: </label>
@@ -54,7 +53,7 @@
             
            	<!-- Page vente remportée -->
            	<button> Retrait effectué</button>
-
+		
         </body>
         <footer>
 

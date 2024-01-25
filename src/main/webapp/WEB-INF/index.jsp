@@ -78,7 +78,7 @@
 <c:if test="${not empty listeArticles}">
 	<c:forEach var="article" items="${listeArticles}">
 	<c:set var="articleId" value="${article.noArticle}"></c:set>
-		<form action="./DetailEnchere" method="post"> 
+		<form action="./DetailEnchere" method="get"> 
        	 <div class="row mt-4">
          	<div class="col-md-4 mb-4">
                 	<div class="card">
