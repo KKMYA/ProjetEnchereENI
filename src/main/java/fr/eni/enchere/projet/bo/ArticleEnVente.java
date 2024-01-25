@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class ArticleEnVente {
 
+	public final static String IMAGE_BASE_NAME = "image-article-";
+	
 	private int noUtilisateur;
 	private int noCategorie;
 	private int noArticle;
@@ -14,7 +16,18 @@ public class ArticleEnVente {
 	private int miseAPrix;
 	private int prixVente;
 	private String etatVente;
+	private String image;
 	
+	public String getImage() {
+		return image;
+	}
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
 	public ArticleEnVente() {
 	}
 

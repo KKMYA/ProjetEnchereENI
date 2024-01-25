@@ -83,6 +83,7 @@
          	<div class="col-md-4 mb-4">
                 	<div class="card">
                    		<h5 class="card-title"><c:out value="${article.nomArticle}" /></h5>
+                   		<img width="100" src ="img/${article.image}"/>
                     	<p class="card-text"><small class="text-muted"><c:out value="Mis en vente le : ${article.dateDebutEncheres}" /></small></p>
                      	<p class="card-text"><small class="text-muted"><c:out value="État de la vente : " /></small></p>                   
                      	<p class="card-text"><small class="text-muted"><c:out value="Prix :" /></small></p>                   

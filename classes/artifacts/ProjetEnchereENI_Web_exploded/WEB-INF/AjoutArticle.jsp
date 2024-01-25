@@ -14,7 +14,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <div class="container mt-5">
 
-    <%@include file="Test.html" %>
+
+    <%-- <%@include file="HeaderFooter.jsp" %> --%>
   <h2>Ajouter un article à vendre</h2>
   
   
@@ -51,6 +52,7 @@
         <label for="dateAjout">Date d'ajout</label>
         <input type="datetime-local" id="dateAjout" name="dateAjout" class="form-control"/>
     </div>
+
     <div class="form-group">
       <label for="photo">URL de la photo :</label>
       <input type="url" class="form-control" id="photo" name="photo" placeholder="Entrez l'URL de la photo de l'article">
@@ -61,7 +63,7 @@
     </div>
     
             <!--Bloc Adresse du retrait -->
-    </div>
+
       <div class="form-group">
           <label for="ville">Ville</label>
           <input type="text" id="ville" name="villeRetrait" class="form-control" >
