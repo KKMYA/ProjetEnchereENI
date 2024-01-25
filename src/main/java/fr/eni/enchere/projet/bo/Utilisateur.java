@@ -155,16 +155,18 @@ public class Utilisateur {
 	}
 
 
-	public Integer getRandomKey() {
+	public static Integer getRandomKey() {
 		return randomKey;
 	}
 
-	public static Integer generateRandomKey(String email) {
-		Integer randomKey;
+
+	//Méthode permettant de générer une clé de confirmation d'email attribuée à un utilisateur
+	public static String generateRandomKey(String email) {
+		int randomKey;
 		if (RecuperationMDP.CheckMail(email)) {
 			Random random = new Random();
 			randomKey = random.nextInt( 9999-1000)+1000;
-			return randomKey;
+			return Integer.toString(randomKey);
 
 		} else {
 			return null;

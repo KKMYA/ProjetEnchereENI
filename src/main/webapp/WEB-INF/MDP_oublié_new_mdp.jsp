@@ -7,6 +7,7 @@
     <title>Entrer nouveau Mot de passe</title>
 </head>
 <body>
+<form action="">
 <div class="row mb-3 w-50">
   <label for="EntrerMDP" class="col-sm-2 col-form-label">Entrer nouveau mot de passe</label>
   <div class="col-sm-10">
@@ -22,5 +23,6 @@
   <div>
     <button type="submit" class="btn btn-primary">Valider</button>
   </div>
+</form>
 </body>
 </html>

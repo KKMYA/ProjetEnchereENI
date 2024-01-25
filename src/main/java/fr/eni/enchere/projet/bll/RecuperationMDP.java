@@ -21,6 +21,7 @@ public class RecuperationMDP extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+    //Permet de vérifier si l'adresse mail correspond à une entrée en BDD
 	public static boolean CheckMail(String email) {
 
         boolean check = false;
@@ -45,6 +46,28 @@ public class RecuperationMDP extends HttpServlet {
         return check;
     }
 
+
+
+    //Méthode permettant d'affecter une random key à un utilisateur en BDD
+    public void setRandomKey(Integer randomKey, String email) {
+        int getRandomKey = Integer.parseInt((Utilisateur.generateRandomKey(email)));
+        if (getRandomKey > 999 && getRandomKey < 10000){
+            try (Connection con = ConnectionProvider.getConnection()) {
+                assert con != null;
+                try (PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET randomKey = ?  WHERE email = ? ")) {
+                    pstmt.setString(1, (Integer.toString(getRandomKey)));
+                    pstmt.setString(2, email);
+                    pstmt.executeUpdate();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
+
+
+     // Permet de vérifier si la random key entrée par l'utilisateur correspond à la random key présente à l'index de son compte en BDD
     private static boolean RandomKeyValide(String email, Integer randomKey) {
         if (CheckMail(email))
             try (Connection con = ConnectionProvider.getConnection();
@@ -65,7 +88,7 @@ public class RecuperationMDP extends HttpServlet {
 
     }
 
-
+    //Méthode crééant un nouveau MDP stocké en BDD pour l'utilisateur choisi
     public static void ResetPass(String email, Integer randomKey) throws SQLException {
         if (CheckMail(email)) {
             if (RandomKeyValide(email, randomKey)) {
@@ -93,20 +116,8 @@ public class RecuperationMDP extends HttpServlet {
 
     }
 
-    public void setRandomKey(Integer randomKey, String email) {
-        int getRandomKey = Utilisateur.generateRandomKey(email);
-        if (getRandomKey > 999 && getRandomKey < 10000){
-            try (Connection con = ConnectionProvider.getConnection();
-                 PreparedStatement pstmt = con.prepareStatement("UPDATE UTILISATEURS SET randomKey = ?  WHERE email = ? ")) {
-                pstmt.setInt(1, getRandomKey);
-                pstmt.setString(2, email);
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
 
-            }
-        }
-    }
+
 }
   /*  private static void updateMDP(String email, String nouveauMDP){
         if (CheckMail(email)) {

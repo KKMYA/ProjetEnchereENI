@@ -32,7 +32,7 @@
 	                    Mon profil
 	                </button>
 	            </a>
-	            <a href=".//AjoutArticle" class="text-decoration-none">
+	            <a href="./AjoutArticle" class="text-decoration-none">
 	                <button class="btn btn-light" type="button" id="Connexion">
 	                    Vendre Un Article
 	                </button>

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
     Mot de Passe oublié?
   </div>
 
-  <form>
+  <form action="./MDP_oublié" method="post">">
     <div class="form-group w-50 center col-md-6 row g-3">
       <label for="Email_mdp_oublié">Adresse Mail</label>
       <input type="email" class="form-control" id="Email_mdp_oublié" placeholder="Veuillez entrer votre adresse mail">
