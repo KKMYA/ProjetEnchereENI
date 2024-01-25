@@ -2,6 +2,7 @@ package fr.eni.enchere.projet.gestion;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
 import fr.eni.enchere.projet.bo.ArticleEnVente;
@@ -33,6 +34,7 @@ public class ServletAjoutArticle extends HttpServlet {
 	@Override
 	public void init() throws ServletException{
 		uploadPath = getServletContext().getRealPath(IMAGE_FOLDER);
+		System.out.println(uploadPath);
 		File uploadDir = new File(uploadPath);
 		if(  ! uploadDir.exists()) {
 			uploadDir.mkdir();
@@ -49,10 +51,11 @@ public class ServletAjoutArticle extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Part part = request.getPart("image");
-		String fileName = part.getSubmittedFileName();
-		String fullPath = uploadPath + File.separator + fileName;
-		part.write(fullPath);
-		request.setAttribute("image", fileName);
+		String name = part.getSubmittedFileName();
+		System.out.println(name);
+		String[] splittedFile = name.split("\\.");
+		System.out.println(Arrays.asList(splittedFile));
+		String extension ="."+ splittedFile[splittedFile.length-1];
 		
 		String nomArticle = request.getParameter("nom_article");
 		String description = request.getParameter("description_article");
@@ -84,15 +87,16 @@ public class ServletAjoutArticle extends HttpServlet {
 			int noArticle = articleDAO.ajouterArticle(article, noUtilisateur);
 			retrait.setNoArticle(noArticle);
 			
+			String fileName = ArticleEnVente.IMAGE_BASE_NAME+ noArticle + extension ;
+			String fullPath = uploadPath + File.separator + fileName;
+			part.write(fullPath);
+			
 			retraitDAO.ajouterRetrait(retrait);
 					System.out.println(retrait);
 			response.sendRedirect(request.getContextPath() + "/");
 			
 	        
-	    } else {
-
-	    }
-	    
+	    } 
 	}
 
 }
