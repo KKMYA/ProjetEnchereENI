@@ -87,7 +87,8 @@ a {
     background-color: #F2F3EF;
     text-align: justify;
     margin-bottom: 50px;
-    padding: 20px 70px 50px 70px
+    padding: 20px 70px 50px 70px;
+    max-width:1140px;
 }
 
  body {
@@ -150,4 +151,5 @@ td a{
 	padding: 10px;
 	margin-bottom: 20px;
 }
+
 </style>

@@ -22,8 +22,8 @@
 
 	<%@include file="Header.jsp"%>
 	<div class="Infos Profil">
-		<h1>Mon profil</h1>
-		<div class="container ">
+		<div class="container mt-5 ">
+			<h1>Mon profil</h1>
 
 			<div class="row">
 				<div class="col-md-4">
@@ -147,6 +147,7 @@
 								</div>
 								<div class="col-md-6">
 									<p>${utilisateur.ville}</p>
+									
 								</div>
 							</div>
 						</div>
@@ -175,7 +176,6 @@
 									value="${utilisateur.noUtilisateur}">PANEL ADMIN</button>
 							</form>
 						</c:if>
-
 					</div>
 				</div>
 			</div>

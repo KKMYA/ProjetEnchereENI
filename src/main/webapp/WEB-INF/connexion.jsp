@@ -7,8 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Connexion</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<%@include file="style.jsp"%>
 </head>
 <body>
+<%@include file="Header.jsp"%>
+	<div class="container mt-5" >
+		<h1> Me connecter</h1>
 <form action="./connexion" method="post"text-center justify-content-center align-self-center>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -41,7 +45,9 @@
   </div>
 
   <!-- Bouton validation formulaire -->
-  <button type="submit" class="btn btn-primary btn-block mb-4">Se connecter</button>
+  <div class= "text-center">
+	<button type="submit" class=" btn btn-primary btn-block mb-4">Se connecter</button>
+	</div>
 
   <!-- Bouton d'inscription -->
   <div class="text-center">
@@ -49,5 +55,7 @@
 
   </div>
 </form>
+</div>
+<%@include file="Footer.jsp"%>
 </body>
 </html>

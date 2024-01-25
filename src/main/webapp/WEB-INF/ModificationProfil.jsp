@@ -8,10 +8,13 @@
         <title>Modifier mon compte</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+        <%@include file="style.jsp"%>
     </head>
 
     <body>
-        <h1>Modifier mon profil</h1>
+<%@include file="Header.jsp"%>
+    	<div class="container mt-5" >        
+<h1>Modifier mon profil</h1>
 
         
          <!-- car présence de mdp-->
@@ -97,7 +100,8 @@
                 <input type="submit" value="Supprimer mon compte">
                 
                 </form>
-       
+            </div>
+            <%@include file="Footer.jsp"%>
 
     </body>
 

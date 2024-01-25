@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Entrer nouveau Mot de passe</title>
+   <%@include file="style.jsp"%>
 </head>
 <body>
+<%@include file="Header.jsp"%>
+	<div class="container mt-5" >
+		<h1>Je change mon mot de passe</h1>
 <form action="./setNewPW" method="post">
 <div class="row mb-3 w-50">
   <label for="EntrerMDP" class="col-sm-2 col-form-label">Entrer nouveau mot de passe</label>
@@ -24,5 +28,7 @@
     <button type="submit" class="btn btn-primary">Valider</button>
   </div>
 </form>
+</div>
+<%@include file="Footer.jsp"%>
 </body>
 </html>

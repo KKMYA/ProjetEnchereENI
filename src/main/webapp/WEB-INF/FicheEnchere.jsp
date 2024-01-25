@@ -7,8 +7,11 @@
             <title>Fiche enchère</title>
             <meta charset="utf-8"/>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+            <%@include file="style.jsp"%>
         </head>
         <body>
+        	<%@include file="Header.jsp"%>
+        	<div class="container mt-5" >
        	<!-- Page Enchérir. Condition: Connecté et enchère date pas terminée ( pas forcément commencé)  -->
             <h1>Détail vente</h1>
             
@@ -52,7 +55,10 @@
             
            	<!-- Page vente remportée -->
            	<button> Retrait effectué</button>
+           	
+           	</div>
 		
+			<%@include file="Footer.jsp"%>
         </body>
         <footer>
 

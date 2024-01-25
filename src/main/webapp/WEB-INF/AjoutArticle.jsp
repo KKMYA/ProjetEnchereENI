@@ -19,7 +19,6 @@
 		
 			<%@include file="Header.jsp"%>
 			
-			<div class="Background">
 			<div class="container mt-5">
 		
 				<h1>Ajouter un article à vendre</h1>
@@ -94,7 +93,6 @@
 						Annuler </a>
 		
 				</form>
-			</div>
 			</div>
 			<%@include file="Footer.jsp"%>
 		
