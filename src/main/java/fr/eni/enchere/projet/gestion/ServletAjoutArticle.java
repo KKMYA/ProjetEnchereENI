@@ -50,9 +50,10 @@ public class ServletAjoutArticle extends HttpServlet {
 }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Part part = request.getPart("image");
+		Part part = request.getPart("fichier");
+		System.out.println("test" + part.getSubmittedFileName());
 		String name = part.getSubmittedFileName();
-		System.out.println(name);
+		System.out.println("test2"+name);
 		String[] splittedFile = name.split("\\.");
 		System.out.println(Arrays.asList(splittedFile));
 		String extension ="."+ splittedFile[splittedFile.length-1];

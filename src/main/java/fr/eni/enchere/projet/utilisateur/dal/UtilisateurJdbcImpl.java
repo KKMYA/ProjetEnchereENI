@@ -25,7 +25,7 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 	private static final String UPDATE_MOTDEPASSE_UTILISATEUR = "UPDATE UTILISATEURS SET mot_de_passe = ? WHERE no_utilisateur = ?";
 	private static final String ADMIN_ADD_UTILISATEUR = "UPDATE UTILISATEURS SET administrateur = 1 WHERE no_utilisateur = ?";
 	private static final String ADMIN_REMOVE_UTILISATEUR = "UPDATE UTILISATEURS SET administrateur = 0 WHERE no_utilisateur = ?";
-
+	private static final String CHECK_PSEUDO_UNICITY = "SELECT pseudo FROM UTILISATEURS where pseudo=?";
 	
 	
 	@Override
@@ -239,4 +239,28 @@ public class UtilisateurJdbcImpl implements UtilisateurDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public boolean checkPseudo(String pseudo) {
+		boolean check = false;
+
+		try (Connection con = ConnectionProvider.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(CHECK_PSEUDO_UNICITY)) {
+
+			pstmt.setString(1, pseudo);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				check = true;
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return check;
+	}
+	
 }

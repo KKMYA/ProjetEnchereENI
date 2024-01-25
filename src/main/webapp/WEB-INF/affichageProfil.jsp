@@ -40,7 +40,7 @@
 		</div>
 				<div class="col-md-6">
 					<div class="profile-head">
-						<h5>${utilisateur.prenom}${utilisateur.nom}</h5>
+						<h5>${utilisateur.prenom} ${utilisateur.nom}</h5>
 						<p class="note vendeur">
 							note vendeur: <span>8/10</span>
 						</p>

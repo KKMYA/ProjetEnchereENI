@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import fr.eni.enchere.projet.bll.RecuperationMDP;
 import fr.eni.enchere.projet.bo.Utilisateur;
 import fr.eni.enchere.projet.dal.DAOFactory;
 import fr.eni.enchere.projet.utilisateur.dal.UtilisateurDAO;
@@ -44,30 +45,41 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String motDePasse = request.getParameter("mot_de_passe");
 		String confirmationMotDePasse = request.getParameter("confirmation");
-	
-		if (motDePasse.equals(confirmationMotDePasse)) {
-			utilisateur.setPseudo(pseudo);
-			utilisateur.setNom(nom);
-			utilisateur.setPrenom(prenom);
-			utilisateur.setEmail(email);
-			utilisateur.setTelephone(telephone);
-			utilisateur.setRue(rue);
-			utilisateur.setCodePostal(codePostal);
-			utilisateur.setVille(ville);
-			utilisateur.setMotDePasse(motDePasse);
-			utilisateurDao.insert(utilisateur);
-			int noUtilisateur = utilisateur.getNoUtilisateur();
-			HttpSession session =request.getSession(false);
-			session.setAttribute("noUtilisateur", noUtilisateur);
-			session.setMaxInactiveInterval(300);
-			response.sendRedirect(request.getContextPath() + "/");
-			System.out.println("insertion réussie");
-		}
-		else {
-			System.out.println("erreur lors de l'insertion");
-			
-		}	
-		
+		String errorMotDePasse = null;
+		String errorUnicityMailPseudo = null;
+
+		if(RecuperationMDP.CheckMail(email)==false && utilisateurDao.checkPseudo(pseudo)==false) {
+			if (motDePasse.equals(confirmationMotDePasse)) {
+				utilisateur.setPseudo(pseudo);
+				utilisateur.setNom(nom);
+				utilisateur.setPrenom(prenom);
+				utilisateur.setEmail(email);
+				utilisateur.setTelephone(telephone);
+				utilisateur.setRue(rue);
+				utilisateur.setCodePostal(codePostal);
+				utilisateur.setVille(ville);
+				utilisateur.setMotDePasse(motDePasse);
+				utilisateurDao.insert(utilisateur);
+				int noUtilisateur = utilisateur.getNoUtilisateur();
+				HttpSession session =request.getSession(false);
+				session.setAttribute("noUtilisateur", noUtilisateur);
+				session.setMaxInactiveInterval(300);
+				response.sendRedirect(request.getContextPath() + "/");
+				System.out.println("insertion réussie");
+			}
+			else {
+				System.out.println("erreur lors de l'insertion");
+				errorMotDePasse = "Les mots de passe ne correspondent pas!";
+				request.setAttribute("errorMotDePasse", errorMotDePasse);
+				System.out.println(errorMotDePasse);
+				request.getRequestDispatcher("WEB-INF/inscription.jsp").forward(request, response);
+			}
+		}else {
+				errorUnicityMailPseudo = "Le mail et/ou le pseudo n'est pas disponible!";
+				request.setAttribute("errorMailPseudo", errorUnicityMailPseudo);
+				request.getRequestDispatcher("WEB-INF/inscription.jsp").forward(request, response);
+
+			}
 		
 	}
 
