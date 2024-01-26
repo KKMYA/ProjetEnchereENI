@@ -21,7 +21,7 @@
             <!-- Page vente remportée. Condition: Enchère terminée + id du gagnant = moi -->
             <h1>Vous avez remporté la vente</h1>
             
-            <img>
+            <img width="100" src ="${fullPath}"/>
             <!-- Titre de l'enchère -->
             <h2>${article.nomArticle}</h2>
 
