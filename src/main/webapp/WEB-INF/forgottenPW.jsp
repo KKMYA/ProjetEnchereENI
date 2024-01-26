@@ -9,15 +9,20 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<%@include file="style.jsp"%>
 <title>Mot de Passe oublié?</title>
 </head>
 <body>
-	<div class="col-md-6 row g-3">Mot de Passe oublié?</div>
+	<%@include file="Header.jsp"%>
+	
+	<div class="container mt-5">
+	<h1>Mot de Passe oublié?</h1>
+	<div class="col-md-6 row g-3"></div>
 	<c:if test="${not empty error}">
 		<p>${error}</p>
 	</c:if>
 	<form action="./forgottenPW" method="post">
-		<div class="form-group w-50 center col-md-6 row g-3">
+		<div >
 			<label for="Email_mdp_oublié">Adresse Mail</label> <input
 				type="email" class="form-control" id="Email_mdp_oublié"
 				name="Email_mdp_oublié"
@@ -28,5 +33,8 @@
 			<button type="submit" class="btn btn-primary">Envoyer</button>
 		</div>
 	</form>	
+	</div>
+	
+	<%@include file="Footer.jsp"%>
 </body>
 </html>

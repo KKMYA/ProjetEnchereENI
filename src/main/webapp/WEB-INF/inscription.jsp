@@ -120,22 +120,15 @@
 	                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}[A-Z a-z\W]{8,}"><br><br><br>
 	
 	
-	                <input type="submit" value="Créer">
-	
-	
-	            </fieldset>
-	
+	                <input class= "btn-primary" type="submit" value="Créer">
+	                 <form action="./">
+	            <input class= "btn-primary" type="submit" value="Annuler">
 	        </form>
 	
-	        <form action="./">
-	            <input type="submit" value="Annuler">
 	        </form>
 	        </div>
 	<%@include file="Footer.jsp"%>
     </body>
 
-    <footer>
-
-    </footer>
 
 </html>
