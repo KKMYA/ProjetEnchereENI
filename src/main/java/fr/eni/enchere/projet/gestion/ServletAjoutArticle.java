@@ -86,24 +86,7 @@ public class ServletAjoutArticle extends HttpServlet {
 		LocalDateTime dateFin = null;
 		LocalDateTime dateNow = LocalDateTime.now();
 
-		try {
-		    if (dateDebutEnchere != null && !dateDebutEnchere.isEmpty() && dateFinEnchere != null && !dateFinEnchere.isEmpty()) {
-		        // Convertir la chaîne de date en LocalDateTime
-		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-		        dateDebut = LocalDateTime.parse(dateDebutEnchere, formatter);
-		        dateFin = LocalDateTime.parse(dateFinEnchere, formatter);
 
-		        if (dateDebut.isBefore(dateNow)) {
-		            dateDebut = dateNow;
-		        }
-		    } else {
-		        // Gérez le cas où les paramètres de requête sont nuls ou vides
-		        // Vous pouvez afficher un message d'erreur ou effectuer une autre action appropriée.
-		    }
-		} catch (DateTimeParseException e) {
-		    // Gérez les exceptions liées à la conversion des chaînes en LocalDateTime
-		    e.printStackTrace();
-		}
 		
 		int prixInitial = Integer.parseInt(request.getParameter("prix_initial_de_vente"));
 		
