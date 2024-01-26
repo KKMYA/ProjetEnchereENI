@@ -32,7 +32,7 @@
 			            id="adminADD"
 			            name="adminADD"
 			            
-			            placeholder="Pseudo">
+			            placeholder="Adresse e-mail">
 			        <button type="submit">Donner les droits d'administrateur</button>
 			</form>
 			<br>
@@ -42,7 +42,7 @@
 			            id="adminREMOVE"
 			            name="adminREMOVE"
 			            
-			            placeholder="Pseudo">
+			            placeholder="Adresse e-mail">
 			        <button type="submit">Retirer les droits d'administrateur</button>	    
 			</form>
 			<br>
