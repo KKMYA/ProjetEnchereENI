@@ -17,7 +17,6 @@
 <div class="container mt-5">
 <h1 class="text-center">ENI ENCHERES</h1>
 
-	<h2> Filtres:</h2>
 
 <form id="categorieForm" action="./" method="get">
     <div class="dropdown">

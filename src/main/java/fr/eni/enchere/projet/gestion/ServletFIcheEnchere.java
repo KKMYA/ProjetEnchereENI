@@ -21,39 +21,40 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/FicheEnchere")
 public class ServletFIcheEnchere extends HttpServlet {
-	
-	private static final long serialVersionUID = 1L;
-	private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticleDAO();
-	private static UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
-	private static CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
-	private static RetraitDAO retraitDAO = DAOFactory.getRetraitDAO();
-       
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		int noArticle = Integer.parseInt(request.getParameter("id_article"));
-		
-		ArticleEnVente articleDemande = articleDAO.afficherArticleSelonIdArticle(noArticle);
-		request.setAttribute("ArticleEnVente", articleDemande);
-		
-	//	Retrait retrait = retraitDAO.afficherRetrait(articleDemande);
-	//	request.setAttribute("LieuDeRetrait", retrait);
-		
-		
-		Utilisateur utilisateurDemande = null;
-		try {
-			utilisateurDemande = utilisateurDAO.select(articleDemande.getNoUtilisateur());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		request.setAttribute("PseudoUtilisateur", utilisateurDemande);
-		
-		String categorieDemande = categorieDAO.getNomCategorie(articleDemande.getNoCategorie());
-		request.setAttribute("CategorieArticle", categorieDemande);
+    private static final long serialVersionUID = 1L;
+    private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticleDAO();
+    private static UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
+    private static CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
+    private static RetraitDAO retraitDAO = DAOFactory.getRetraitDAO();
 
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        int noArticle = Integer.parseInt(request.getParameter("id_article"));
+
+        ArticleEnVente articleDemande = articleDAO.afficherArticleSelonIdArticle(noArticle);
+        request.setAttribute("ArticleEnVente", articleDemande);
+
+        //	Retrait retrait = retraitDAO.afficherRetrait(articleDemande);
+        //	request.setAttribute("LieuDeRetrait", retrait);
+
+
+        Utilisateur utilisateurDemande = null;
+        try {
+            utilisateurDemande = utilisateurDAO.select(articleDemande.getNoUtilisateur());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        request.setAttribute("PseudoUtilisateur", utilisateurDemande);
+
+        String categorieDemande = categorieDAO.getNomCategorie(articleDemande.getNoCategorie());
+        request.setAttribute("CategorieArticle", categorieDemande);
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 
 }
