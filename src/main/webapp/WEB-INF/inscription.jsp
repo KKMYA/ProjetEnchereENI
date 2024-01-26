@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 
 <html>
@@ -18,6 +20,11 @@
 	        
 	        <form action="./inscription" method="post"> <!-- car prÃ©sence de mdp-->
 	
+	            <!--Plus de Fieldset (visible) avec l'ajout du bootstrap-->
+	            <fieldset>
+	            <c:if test="${not empty errorMailPseudo}">
+	            <p>${errorMailPseudo }</p>
+	            </c:if>
 	                <label for="pseudo">Pseudo: </label>
 	                <input type="text"
 	                id="pseudo" 
@@ -46,7 +53,9 @@
 	                placeholder="prénom"
 	                pattern="[A-Z a-z\W]{3,}"
 	                title="3 caractÃ¨res minimum. Pas de caractères spéciaux acceptés."><br>
-	
+					<c:if test="${not empty errorMailPseudo}">
+	            	<p>${errorMailPseudo }</p>
+	           		</c:if>
 	                <label for="email">Email:</label>
 	                <input type="email"
 	                id="email" 
@@ -90,7 +99,9 @@
 	                placeholder="ville"
 	                
 	                title=""><br>
-	
+					<c:if test="${not empty errorMotDePasse}">
+	           		<p>${errorMotDePasse}</p>
+	           		</c:if>
 	                <label for="mot_de_passe">Mot de passe: </label>
 	                <input type="password"
 	                id="mot_de_passe" 

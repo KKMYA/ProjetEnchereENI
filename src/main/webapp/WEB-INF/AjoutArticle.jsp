@@ -25,7 +25,7 @@
 		
 		
 				<!--Définition du formulaire d'ajout d'article -->
-				<form method="post" action="./AjoutArticle">
+				<form method="post" action="./AjoutArticle" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="nom_article">Nom de l'article :</label> <input
 							type="text" class="form-control" id="nom_article"
