@@ -17,6 +17,8 @@
 <div class="container mt-5">
 <h1 class="text-center">ENI ENCHERES</h1>
 
+	<h2> Filtres:</h2>
+
 <form id="categorieForm" action="./" method="get">
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="categoriesDrop" name="categoriesDrop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,10 +35,7 @@
 </form>
 
 <form class="text-center justify-content-center d-flex align-items-center mt-4">
-    <div class="w-25">
-        <label for="InputFiltres" class="form-label"></label>
-        <input type="search" class="form-control" id="InputFiltres" name="InputFiltres" aria-describedby="InputFiltres" placeholder="Filtrer">
-    </div>
+ 
 
     <div class="input-group w-25 ms-3">
         <input type="search" class="form-control rounded" id="Rechercher" name="Rechercher" placeholder="Rechercher" aria-label="Search" aria-describedby="search-addon" />

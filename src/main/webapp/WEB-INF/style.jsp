@@ -14,6 +14,7 @@ button{
 	border-color:  #545454;
 	color:white !important;
 	border-radius:.25rem;
+	padding: 5px;
 }
 button : hover{
 }
@@ -150,6 +151,12 @@ td a{
 	border-color:  #545454;
 	padding: 10px;
 	margin-bottom: 20px;
+}
+.dropdown-item {
+	color: #CFAB8C !important;
+}
+.card{
+	padding:25px;
 }
 
 </style>
