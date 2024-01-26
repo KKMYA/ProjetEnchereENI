@@ -2,11 +2,23 @@ package fr.eni.enchere.projet.gestion;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import fr.eni.enchere.projet.article.dal.ArticleEnVenteDAO;
 import fr.eni.enchere.projet.bo.ArticleEnVente;
+import fr.eni.enchere.projet.bo.Categorie;
 import fr.eni.enchere.projet.bo.Retrait;
+import fr.eni.enchere.projet.dal.CategorieDAO;
 import fr.eni.enchere.projet.dal.DAOFactory;
 import fr.eni.enchere.projet.dal.RetraitDAO;
 import jakarta.servlet.ServletException;
@@ -25,12 +37,14 @@ import jakarta.servlet.http.Part;
 public class ServletAjoutArticle extends HttpServlet {
 	public static final String IMAGE_FOLDER = "/img";
 	
+	
 	public String uploadPath;
 	
 	private static final long serialVersionUID = 1L;
 	private static ArticleEnVenteDAO articleDAO = DAOFactory.GetArticleDAO();
 	private static RetraitDAO retraitDAO = DAOFactory.getRetraitDAO();
-
+	private static CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
+	
 	@Override
 	public void init() throws ServletException{
 		uploadPath = getServletContext().getRealPath(IMAGE_FOLDER);
@@ -44,7 +58,9 @@ public class ServletAjoutArticle extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		List<Categorie>listeDesCategories = new ArrayList<>();
+		listeDesCategories = categorieDAO.afficherCategories();
+		request.setAttribute("listeDesCategories", listeDesCategories);
 		request.getRequestDispatcher("/WEB-INF/AjoutArticle.jsp").forward(request, response);
 
 }
@@ -64,6 +80,31 @@ public class ServletAjoutArticle extends HttpServlet {
 		String villeRetrait = request.getParameter("villeRetrait");
 		
 		
+		String dateDebutEnchere = request.getParameter("dateDebut");
+		String dateFinEnchere = request.getParameter("dateFin");
+		LocalDateTime dateDebut = null;
+		LocalDateTime dateFin = null;
+		LocalDateTime dateNow = LocalDateTime.now();
+
+		try {
+		    if (dateDebutEnchere != null && !dateDebutEnchere.isEmpty() && dateFinEnchere != null && !dateFinEnchere.isEmpty()) {
+		        // Convertir la chaîne de date en LocalDateTime
+		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		        dateDebut = LocalDateTime.parse(dateDebutEnchere, formatter);
+		        dateFin = LocalDateTime.parse(dateFinEnchere, formatter);
+
+		        if (dateDebut.isBefore(dateNow)) {
+		            dateDebut = dateNow;
+		        }
+		    } else {
+		        // Gérez le cas où les paramètres de requête sont nuls ou vides
+		        // Vous pouvez afficher un message d'erreur ou effectuer une autre action appropriée.
+		    }
+		} catch (DateTimeParseException e) {
+		    // Gérez les exceptions liées à la conversion des chaînes en LocalDateTime
+		    e.printStackTrace();
+		}
+		
 		int prixInitial = Integer.parseInt(request.getParameter("prix_initial_de_vente"));
 		
 		ArticleEnVente article = new ArticleEnVente();
@@ -73,8 +114,6 @@ public class ServletAjoutArticle extends HttpServlet {
 	    HttpSession session = request.getSession(false); // Récupérer la session sans en créer une nouvelle
 	    if (session != null && session.getAttribute("noUtilisateur") != null) {
 	    	int noUtilisateur = Integer.parseInt(session.getAttribute("noUtilisateur").toString());
-	    	System.out.println("noUtilisateur");
-	    	System.out.println(noUtilisateur);
 	        session.getAttribute("noUtilisateur");
 			int categorieIndex = Integer.valueOf(request.getParameter("categorieChoix"));
 			article.setNoCategorie(categorieIndex);
@@ -82,6 +121,8 @@ public class ServletAjoutArticle extends HttpServlet {
 			article.setNomArticle(nomArticle);
 			article.setDescription(description);
 			article.setNoUtilisateur(noUtilisateur);
+			article.setDateDebutEncheres(dateDebut);
+			article.setDateFinEncheres(dateFin);
 						
 			retrait.setRue(rueRetrait);
 			retrait.setCodePostal(codePostalRetrait);
