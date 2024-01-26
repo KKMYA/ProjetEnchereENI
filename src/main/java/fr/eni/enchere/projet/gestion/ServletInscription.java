@@ -60,11 +60,8 @@ public class ServletInscription extends HttpServlet {
 				utilisateur.setVille(ville);
 				utilisateur.setMotDePasse(motDePasse);
 				utilisateurDao.insert(utilisateur);
-				int noUtilisateur = utilisateur.getNoUtilisateur();
-				HttpSession session =request.getSession(false);
-				session.setAttribute("noUtilisateur", noUtilisateur);
-				session.setMaxInactiveInterval(300);
-				response.sendRedirect(request.getContextPath() + "/");
+
+				response.sendRedirect(request.getContextPath() + "/connexion");
 				System.out.println("insertion réussie");
 			}
 			else {
