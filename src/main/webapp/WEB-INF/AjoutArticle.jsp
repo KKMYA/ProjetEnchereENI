@@ -61,6 +61,8 @@
 							placeholder="Entrez le prix du produit" required> <label
 							for="dateAjout">Date d'ajout</label> <input type="datetime-local"
 							id="dateAjout" name="dateAjout" class="form-control" />
+							<label for="dateFin">Date de Fin</label> <input type="datetime-local"
+							id="dateFin" name="dateFin" class="form-control" />
 					</div>
 		
 					<div class="form-group">
