@@ -1,10 +1,6 @@
 # ProjetEnchereENI
+Projet d'un site de ventes aux enchères 
+
+Contributeurs:
 Eli Quélène Romain Alexis
-
-Eli
-Try changement eli
-
-CECI EST UN TEST
-
-Test2
 
